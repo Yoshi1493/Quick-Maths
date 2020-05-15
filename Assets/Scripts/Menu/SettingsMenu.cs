@@ -85,6 +85,6 @@ public class SettingsMenu : Menu
 
         timerDurationButtons[0].interactable = timerDuration > minTimerDuration;
         timerDurationButtons[1].interactable = timerDuration < maxTimerDuration;
-        timerDurationDisplay.text = timerDuration + " sec.";
+        timerDurationDisplay.text = timerDuration.ToString();
     }
 }

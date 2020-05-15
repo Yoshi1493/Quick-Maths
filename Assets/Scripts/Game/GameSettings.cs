@@ -91,7 +91,7 @@ public static class GameSettings
                 num1 = GetRandomNumber(GetNumberRange(questionType, questionSettings[questionType].difficulty + 1));
                 num2 = GetRandomNumber(GetNumberRange(questionType, questionSettings[questionType].difficulty));
 
-                output = $"{FormatInteger(num1)} × {FormatInteger(num2)} =";
+                output = $"{FormatInteger(num1)} x {FormatInteger(num2)} =";
                 answers.Enqueue(num1 * num2);
                 break;
 
