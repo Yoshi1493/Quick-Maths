@@ -8,12 +8,13 @@ public class GameController : MonoBehaviour
 {
     class Clock : MonoBehaviour
     {
-        public float currentTime;
         IEnumerator timekeeper;
+        public float currentTime;
+        bool isPaused;
 
         IEnumerator Increment()
         {
-            while (true)
+            while (!isPaused)
             {
                 yield return new WaitForEndOfFrame();
                 currentTime += Time.deltaTime;
@@ -22,7 +23,7 @@ public class GameController : MonoBehaviour
 
         IEnumerator Decrement()
         {
-            while (currentTime > 0)
+            while (currentTime > 0 && !isPaused)
             {
                 yield return new WaitForEndOfFrame();
                 currentTime -= Time.deltaTime;
@@ -42,9 +43,14 @@ public class GameController : MonoBehaviour
             StopCoroutine(timekeeper);
             return currentTime;
         }
+
+        public void SetPaused(bool state)
+        {
+            isPaused = state;
+        }
     }
 
-    [SerializeField] TextMeshProUGUI questionDisplayBox, answerDisplayBox;
+    [SerializeField] TextMeshProUGUI questionDisplayBox;
 
     Clock clock;
     public delegate void GameOverAction(float finalTime);
@@ -109,8 +115,6 @@ public class GameController : MonoBehaviour
     void OnSubmitAnswer(int playerInput)
     {
         int correctAnswer = answers.Dequeue();
-        answerDisplayBox.text += $"{playerInput} \n";
-
         numQuestionsAnswered++;
         if (playerInput == correctAnswer)
         {

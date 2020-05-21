@@ -1,24 +1,24 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using TMPro;
 
 public class QuestionDisplay : MonoBehaviour
 {
-    RectTransform[] childObjects;
-    const float scrollAmount = 104;     //change eventually
+    [SerializeField] TextMeshProUGUI questionDisplayBox;
+    [SerializeField] TextMeshProUGUI answerDisplayBox;
 
     void Awake()
     {
-        childObjects = transform.GetComponentsInChildren<RectTransform>();
-        TextMeshProUGUI text = GetComponentInChildren<TextMeshProUGUI>();
-
         FindObjectOfType<Keyboard>().SubmitAnswerAction += OnSubmitAnswer;
     }
 
     void OnSubmitAnswer(int answer)
     {
-        foreach (var child in childObjects)
-        {
-            child.anchoredPosition += Vector2.up * scrollAmount;
-        }
+        //trim first line of questionDisplayBox
+        int newLineIndex = questionDisplayBox.text.IndexOf('\n');
+        print(newLineIndex);
+        string s = questionDisplayBox.text.Substring(newLineIndex + 1);
+
+        questionDisplayBox.text = s;
     }
 }
