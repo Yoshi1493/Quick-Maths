@@ -17,6 +17,8 @@ public class SettingsMenu : Menu
     List<Slider> difficultySliders = new List<Slider>(Enum.GetValues(typeof(QuestionType)).Length);
     List<Toggle> enableQuestionToggles = new List<Toggle>(Enum.GetValues(typeof(QuestionType)).Length);
 
+    public const string TimeDisplayFormat = "m':'ss";
+
     protected override void Awake()
     {
         base.Awake();
@@ -85,6 +87,6 @@ public class SettingsMenu : Menu
 
         timerDurationButtons[0].interactable = timerDuration > minTimerDuration;
         timerDurationButtons[1].interactable = timerDuration < maxTimerDuration;
-        timerDurationDisplay.text = timerDuration.ToString();
+        timerDurationDisplay.text = TimeSpan.FromSeconds(timerDuration).ToString(TimeDisplayFormat);
     }
 }

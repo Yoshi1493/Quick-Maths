@@ -44,7 +44,5 @@ public static class GameSettings
 
     public const float minTimerDuration = 60f;
     public const float maxTimerDuration = 300f;
-
-    public const string TimeDisplayFormat = "m':'ss'.'f";
     #endregion
 }

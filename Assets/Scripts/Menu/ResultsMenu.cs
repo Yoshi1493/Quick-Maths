@@ -6,6 +6,7 @@ using static GameSettings;
 public class ResultsMenu : Menu
 {
     [SerializeField] TextMeshProUGUI gameStats;
+    public const string TimeDisplayFormat = "m':'ss'.'f";
 
     protected override void Awake()
     {
