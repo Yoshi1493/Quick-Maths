@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 using static GameSettings;
 
-public class GameOverMenu : Menu
+public class ResultsMenu : Menu
 {
     [SerializeField] TextMeshProUGUI gameStats;
 
@@ -17,15 +17,15 @@ public class GameOverMenu : Menu
     {
         OpenMenu(thisMenu);
 
-        gameStats.text = $"Score: {numQuestionsCorrect} / {numQuestionsAnswered} ({(numQuestionsCorrect * 100f / numQuestionsAnswered).ToString("F1")}%)";
+        gameStats.text = $"Score: {numQuestionsCorrect} / {numQuestionsAnswered} ({(numQuestionsCorrect * 100f / numQuestionsAnswered).ToString("F1")}%){'\n'}";
 
         if (selectedGameMode == GameMode.Classic)
         {
             string finalTime = TimeSpan.FromSeconds(gameTime).ToString(TimeDisplayFormat);
-            gameStats.text += $"{'\n'}Time: {finalTime}";
+            gameStats.text += $"Time: {finalTime} ";
         }
 
         string avgTime = TimeSpan.FromSeconds(gameTime / numQuestionsAnswered).ToString(TimeDisplayFormat);
-        gameStats.text += $"{'\n'}Avg. time per question: {avgTime}";
+        gameStats.text += $"(avg.: {avgTime})";
     }
 }
