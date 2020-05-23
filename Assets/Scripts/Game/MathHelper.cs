@@ -3,6 +3,8 @@ using UnityEngine;
 
 public static class MathHelper
 {
+    const string IntDisplayFormat = "N0";
+
     //return random number within the range (min, max) (exclusive)
     public static int GetRandomNumber((int min, int max) range)
     {
@@ -34,5 +36,15 @@ public static class MathHelper
         }
 
         return factors;
+    }
+
+    public static int TenToThePowerOf(int num)
+    {
+        return (int)Mathf.Pow(10, num);
+    }
+
+    public static string ConvertToString(int i)
+    {
+        return i.ToString(IntDisplayFormat);
     }
 }

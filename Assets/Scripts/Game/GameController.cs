@@ -1,55 +1,12 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using static GameSettings;
+using static MathHelper;
 
 public class GameController : MonoBehaviour
 {
-    class Clock : MonoBehaviour
-    {
-        IEnumerator timekeeper;
-        public float currentTime;
-        bool isPaused;
-
-        IEnumerator Increment()
-        {
-            while (!isPaused)
-            {
-                yield return new WaitForEndOfFrame();
-                currentTime += Time.deltaTime;
-            }
-        }
-
-        IEnumerator Decrement()
-        {
-            while (currentTime > 0 && !isPaused)
-            {
-                yield return new WaitForEndOfFrame();
-                currentTime -= Time.deltaTime;
-            }
-
-            GetComponent<GameController>().gameOverAction?.Invoke(timerDuration);
-        }
-
-        public void StartClock()
-        {
-            timekeeper = currentTime == 0 ? Increment() : Decrement();
-            StartCoroutine(timekeeper);
-        }
-
-        public float StopClock()
-        {
-            StopCoroutine(timekeeper);
-            return currentTime;
-        }
-
-        public void SetPaused(bool state)
-        {
-            isPaused = state;
-        }
-    }
-
     [SerializeField] TextMeshProUGUI questionDisplayBox;
 
     Clock clock;
@@ -58,6 +15,8 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        clock = GetComponent<Clock>();
+
         FindObjectOfType<InstructionsMenu>().GameStartAction += OnGameStart;
         FindObjectOfType<Keyboard>().SubmitAnswerAction += OnSubmitAnswer;
     }
@@ -79,17 +38,15 @@ public class GameController : MonoBehaviour
 
         GenerateQuestions(questionCount);
 
-        clock = gameObject.AddComponent<Clock>();
         switch (selectedGameMode)
         {
             case GameMode.Classic:
-                clock.currentTime = 0f;
+                clock.StartClock(0);
                 break;
             case GameMode.Timed:
-                clock.currentTime = timerDuration;
+                clock.StartClock(timerDuration);
                 break;
         }
-        clock.StartClock();
     }
 
     //generate <amount> random questions based on enabled question types and question diffculty
@@ -110,6 +67,79 @@ public class GameController : MonoBehaviour
             //append question to question display box
             questionDisplayBox.text += question + '\n';
         }
+    }
+
+    string GenerateQuestion(QuestionType questionType)
+    {
+        string output = "";
+        int num1 = 0, num2 = 0;
+
+        switch (questionType)
+        {
+            case QuestionType.Addition:
+                num1 = GetRandomNumber(GetNumberRange(questionType, questionSettings[questionType].difficulty));
+                num2 = GetRandomNumber(GetNumberRange(questionType, questionSettings[questionType].difficulty));
+
+                output = $"{ConvertToString(num1)} + {ConvertToString(num2)} =";
+                answers.Enqueue(num1 + num2);
+                break;
+
+            case QuestionType.Subtraction:
+                num1 = GetRandomNumber(GetNumberRange(questionType, questionSettings[questionType].difficulty));
+                num2 = GetRandomNumber((GetNumberRange(questionType, questionSettings[questionType].difficulty).min, num1));
+
+                output = $"{ConvertToString(num1)} - {ConvertToString(num2)} =";
+                answers.Enqueue(num1 - num2);
+                break;
+
+            case QuestionType.Multiplication:
+                num1 = GetRandomNumber(GetNumberRange(questionType, questionSettings[questionType].difficulty + 1));
+                num2 = GetRandomNumber(GetNumberRange(questionType, questionSettings[questionType].difficulty));
+
+                output = $"{ConvertToString(num1)} x {ConvertToString(num2)} =";
+                answers.Enqueue(num1 * num2);
+                break;
+
+            case QuestionType.Division:
+                List<int> num1Factors = GetFactors(num1);
+                while (num1Factors.Count <= 2)
+                {
+                    num1 = GetRandomNumber(GetNumberRange(questionType, questionSettings[questionType].difficulty));
+                    num1Factors = GetFactors(num1);
+                }
+
+                num2 = GetRandomNumber(num1Factors);
+
+                output = $"{ConvertToString(num1)} ÷ {ConvertToString(num2)} =";
+                answers.Enqueue(num1 / num2);
+                break;
+        }
+
+        return output;
+    }
+
+    (int min, int max) GetNumberRange(QuestionType questionType, int difficulty)
+    {
+        (int min, int max) result = (0, 0);
+
+        switch (questionType)
+        {
+            case QuestionType.Addition:
+            case QuestionType.Subtraction:
+                result.min = TenToThePowerOf(difficulty);
+                result.max = TenToThePowerOf(difficulty + 1);
+                break;
+            case QuestionType.Multiplication:
+                result.min = TenToThePowerOf(difficulty / 2);
+                result.max = TenToThePowerOf((difficulty / 2) + 1);
+                break;
+            case QuestionType.Division:
+                result.min = TenToThePowerOf((difficulty % 3) + (difficulty / 3) + 1);
+                result.max = TenToThePowerOf((difficulty % 3) + (difficulty / 3) + 2);
+                break;
+        }
+
+        return result;
     }
 
     void OnSubmitAnswer(int playerInput)
