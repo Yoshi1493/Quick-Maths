@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b240b8d489f6f27458e44339f5270463
+guid: e121ec34a7861f149b0f7262a253c673
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: BlowBrush
+  fontName: GOOD BRUSH
   fontNames:
-  - BlowBrush
+  - GOOD BRUSH
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
