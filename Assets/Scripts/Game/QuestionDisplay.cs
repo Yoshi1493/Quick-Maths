@@ -16,7 +16,6 @@ public class QuestionDisplay : MonoBehaviour
     {
         //trim first line of questionDisplayBox
         int newLineIndex = questionDisplayBox.text.IndexOf('\n');
-        print(newLineIndex);
         string s = questionDisplayBox.text.Substring(newLineIndex + 1);
 
         questionDisplayBox.text = s;
