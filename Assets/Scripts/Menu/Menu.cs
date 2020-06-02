@@ -32,9 +32,4 @@ public class Menu : MonoBehaviour
         selectedGameMode = (GameMode)gameMode;
         SceneManager.LoadScene("Game");
     }
-
-    public void LoadScene(int sceneIndex)
-    {
-        SceneManager.LoadScene(sceneIndex);
-    }
 }

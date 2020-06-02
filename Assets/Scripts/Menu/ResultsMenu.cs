@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 using static GameSettings;
 
@@ -28,5 +29,15 @@ public class ResultsMenu : Menu
 
         string avgTime = TimeSpan.FromSeconds(gameTime / numQuestionsAnswered).ToString(TimeDisplayFormat);
         gameStats.text += $"(avg.: {avgTime})";
+    }
+
+    public void OnSelectRetry()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+    public void OnSelectBackToMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
