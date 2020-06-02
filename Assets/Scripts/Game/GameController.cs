@@ -28,11 +28,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        #region DEBUG
-        if (selectedGameMode == GameMode.Classic) { print("questionCount: " + questionCount); }
-        else { print("timerDuration: " + timerDuration); }
-        #endregion
-
         numQuestionsAnswered = 0;
         numQuestionsCorrect = 0;
 

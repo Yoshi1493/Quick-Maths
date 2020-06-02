@@ -57,8 +57,6 @@ public class SettingsMenu : Menu
     {
         questionSettings[(QuestionType)questionType] = (enableQuestionToggles[questionType].isOn, questionSettings[(QuestionType)questionType].difficulty);
 
-        print(questionType + (questionSettings[(QuestionType)questionType].enabled ? " enabled." : " disabled."));
-
         //disable all enable question toggles if there's only 1 toggle left on
         //(to avoid the player being able to disable all question types)
         enableQuestionToggles.ForEach(i =>

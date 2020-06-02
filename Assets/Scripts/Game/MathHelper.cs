@@ -38,11 +38,13 @@ public static class MathHelper
         return factors;
     }
 
+    //return 10^num
     public static int TenToThePowerOf(int num)
     {
         return (int)Mathf.Pow(10, num);
     }
 
+    //return i as a string in
     public static string ConvertToString(int i)
     {
         return i.ToString(IntDisplayFormat);

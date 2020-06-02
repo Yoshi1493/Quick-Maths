@@ -29,7 +29,7 @@ public static class GameSettings
     public static int numQuestionsAnswered, numQuestionsCorrect;
     #endregion
 
-    #region Player Options
+    #region Player Preferences
     public static GameMode selectedGameMode = GameMode.Classic;
     public static int questionCount = minQuestionCount;
 
