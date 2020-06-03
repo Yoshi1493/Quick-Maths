@@ -69,14 +69,13 @@ MonoBehaviour:
   m_text: Title
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 776fd9ba09058cd41a894940b2b67d66, type: 2}
-  m_sharedMaterial: {fileID: -5279613858331204530, guid: 776fd9ba09058cd41a894940b2b67d66,
-    type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 08c81f5cbe16da642a28e467bed8efdd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281545523
+    rgba: 4293256677
   m_fontColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
