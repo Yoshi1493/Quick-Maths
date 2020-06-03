@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using static GameSettings;
+using static PlayerSettings;
 
 public class Menu : MonoBehaviour
 {

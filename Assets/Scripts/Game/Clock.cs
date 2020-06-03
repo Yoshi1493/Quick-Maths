@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-using static GameSettings;
+using static PlayerSettings;
 
 public class Clock : MonoBehaviour
 {

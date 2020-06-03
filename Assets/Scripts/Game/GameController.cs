@@ -3,6 +3,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using static GameSettings;
+using static PlayerSettings;
 using static MathHelper;
 
 public class GameController : MonoBehaviour

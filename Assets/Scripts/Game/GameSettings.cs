@@ -36,13 +36,4 @@ public static class GameSettings
     public const float minTimerDuration = 60f;
     public const float maxTimerDuration = 300f;
     #endregion
-
-    #region Player Preferences
-    public static GameMode selectedGameMode = GameMode.Classic;
-    public static int questionCount = minQuestionCount;
-
-    public static bool showClock = true;
-    public static float timerDuration = minTimerDuration;
-
-    #endregion
 }

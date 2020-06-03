@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using static GameSettings;
+using static PlayerSettings;
 
 public class ResultsMenu : Menu
 {

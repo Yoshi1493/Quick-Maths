@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using static GameSettings;
+using static PlayerSettings;
 
 public class GameSettingsMenu : Menu
 {
