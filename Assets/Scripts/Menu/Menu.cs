@@ -21,7 +21,7 @@ public class Menu : MonoBehaviour
         menu.enabled = false;
     }
 
-    public void SwitchMenu(Canvas otherMenu)
+    public virtual void SwitchMenu(Canvas otherMenu)
     {
         OpenMenu(otherMenu);
         CloseMenu(thisMenu);

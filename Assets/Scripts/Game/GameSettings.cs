@@ -26,7 +26,15 @@ public static class GameSettings
     };
 
     public static Queue<int> answers = new Queue<int>();
-    public static int numQuestionsAnswered, numQuestionsCorrect;
+    public static int numCorrectAnswers;
+    #endregion
+
+    #region Constants
+    public const int minQuestionCount = 10;
+    public const int maxQuestionCount = 100;
+
+    public const float minTimerDuration = 60f;
+    public const float maxTimerDuration = 300f;
     #endregion
 
     #region Player Preferences
@@ -36,13 +44,5 @@ public static class GameSettings
     public static bool showClock = true;
     public static float timerDuration = minTimerDuration;
 
-    #endregion
-
-    #region Constants
-    public const int minQuestionCount = 10;
-    public const int maxQuestionCount = 100;
-
-    public const float minTimerDuration = 60f;
-    public const float maxTimerDuration = 300f;
     #endregion
 }

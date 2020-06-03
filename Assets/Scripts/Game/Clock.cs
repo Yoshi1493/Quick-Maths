@@ -15,7 +15,6 @@ public class Clock : MonoBehaviour
             yield return new WaitForEndOfFrame();
             time += Time.deltaTime;
         }
-
     }
 
     IEnumerator CountDown()

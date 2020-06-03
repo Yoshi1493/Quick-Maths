@@ -28,8 +28,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        numQuestionsAnswered = 0;
-        numQuestionsCorrect = 0;
+        numCorrectAnswers = 0;
 
         GenerateQuestions(questionCount);
 
@@ -57,14 +56,15 @@ public class GameController : MonoBehaviour
         {
             //generate a question, randomly based on one of the enabled operations
             QuestionType randQuestionType = _questionSettings.ElementAt(Random.Range(0, numEnabledQuestionTypes)).Key;
-            string question = GenerateQuestion(randQuestionType);
+            string question = GenerateQuestion(randQuestionType, questionSettings[randQuestionType].difficulty);
 
             //append question to question display box
             questionDisplayBox.text += question + '\n';
         }
     }
 
-    string GenerateQuestion(QuestionType questionType)
+    //return 
+    string GenerateQuestion(QuestionType questionType, int difficulty)
     {
         string output = "";
         int num1 = 0, num2 = 0;
@@ -72,24 +72,24 @@ public class GameController : MonoBehaviour
         switch (questionType)
         {
             case QuestionType.Addition:
-                num1 = GetRandomNumber(GetNumberRange(questionType, questionSettings[questionType].difficulty));
-                num2 = GetRandomNumber(GetNumberRange(questionType, questionSettings[questionType].difficulty));
+                num1 = GetRandomNumber(GetNumberRange(questionType, difficulty));
+                num2 = GetRandomNumber(GetNumberRange(questionType, difficulty));
 
                 output = $"{ConvertToString(num1)} + {ConvertToString(num2)} =";
                 answers.Enqueue(num1 + num2);
                 break;
 
             case QuestionType.Subtraction:
-                num1 = GetRandomNumber(GetNumberRange(questionType, questionSettings[questionType].difficulty));
-                num2 = GetRandomNumber((GetNumberRange(questionType, questionSettings[questionType].difficulty).min, num1));
+                num1 = GetRandomNumber(GetNumberRange(questionType, difficulty));
+                num2 = GetRandomNumber((GetNumberRange(questionType, difficulty).min, num1));
 
                 output = $"{ConvertToString(num1)} - {ConvertToString(num2)} =";
                 answers.Enqueue(num1 - num2);
                 break;
 
             case QuestionType.Multiplication:
-                num1 = GetRandomNumber(GetNumberRange(questionType, questionSettings[questionType].difficulty + 1));
-                num2 = GetRandomNumber(GetNumberRange(questionType, questionSettings[questionType].difficulty));
+                num1 = GetRandomNumber(GetNumberRange(questionType, difficulty + 1));
+                num2 = GetRandomNumber(GetNumberRange(questionType, difficulty));
 
                 output = $"{ConvertToString(num1)} x {ConvertToString(num2)} =";
                 answers.Enqueue(num1 * num2);
@@ -99,7 +99,7 @@ public class GameController : MonoBehaviour
                 List<int> num1Factors = GetFactors(num1);
                 while (num1Factors.Count <= 2)
                 {
-                    num1 = GetRandomNumber(GetNumberRange(questionType, questionSettings[questionType].difficulty));
+                    num1 = GetRandomNumber(GetNumberRange(questionType, difficulty));
                     num1Factors = GetFactors(num1);
                 }
 
@@ -140,10 +140,10 @@ public class GameController : MonoBehaviour
     void OnSubmitAnswer(int playerInput)
     {
         int correctAnswer = answers.Dequeue();
-        numQuestionsAnswered++;
+
         if (playerInput == correctAnswer)
         {
-            numQuestionsCorrect++;
+            numCorrectAnswers++;
         }
 
         //check which game mode was selected

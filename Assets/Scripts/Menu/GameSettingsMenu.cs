@@ -1,23 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using static GameSettings;
 
-public class SettingsMenu : Menu
+public class GameSettingsMenu : Menu
 {
     [SerializeField] List<Transform> gameSettingObjects;
     Button[] questionCountButtons = new Button[2];
     Button[] timerDurationButtons = new Button[2];
     TextMeshProUGUI questionCountDisplay, timerDurationDisplay;
-
-    [SerializeField] List<Transform> questionOptionObjects;
-    List<Slider> difficultySliders = new List<Slider>(Enum.GetValues(typeof(QuestionType)).Length);
-    List<Toggle> enableQuestionToggles = new List<Toggle>(Enum.GetValues(typeof(QuestionType)).Length);
-
-    public const string TimeDisplayFormat = "m':'ss";
+    
+    const string TimeDisplayFormat = "m':'ss";
 
     protected override void Awake()
     {
@@ -32,12 +27,6 @@ public class SettingsMenu : Menu
 
         timerDurationButtons = gameSettingObjects[1].GetComponentsInChildren<Button>();
         timerDurationDisplay = ActuallyGetComponentInChildren<TextMeshProUGUI>(gameSettingObjects[1]);
-
-        questionOptionObjects.ForEach(i =>
-        {
-            difficultySliders.Add(i.GetComponentInChildren<Slider>());
-            enableQuestionToggles.Add(i.GetComponentInChildren<Toggle>());
-        });
     }
 
     T ActuallyGetComponentInChildren<T>(Transform t) where T : Component
@@ -51,23 +40,6 @@ public class SettingsMenu : Menu
         }
 
         return null;
-    }
-
-    public void OnToggleQuestionType(int questionType)
-    {
-        questionSettings[(QuestionType)questionType] = (enableQuestionToggles[questionType].isOn, questionSettings[(QuestionType)questionType].difficulty);
-
-        //disable all enable question toggles if there's only 1 toggle left on
-        //(to avoid the player being able to disable all question types)
-        enableQuestionToggles.ForEach(i =>
-        {
-            if (i.isOn) i.enabled = enableQuestionToggles.Count(j => j.isOn) > 1;
-        });
-    }
-
-    public void OnChangeDifficulty(int questionType)
-    {
-        questionSettings[(QuestionType)questionType] = (questionSettings[(QuestionType)questionType].enabled, (int)difficultySliders[questionType].value);
     }
 
     public void OnChangeQuestionCount(int changeAmount)
@@ -86,5 +58,16 @@ public class SettingsMenu : Menu
         timerDurationButtons[0].interactable = timerDuration > minTimerDuration;
         timerDurationButtons[1].interactable = timerDuration < maxTimerDuration;
         timerDurationDisplay.text = TimeSpan.FromSeconds(timerDuration).ToString(TimeDisplayFormat);
+    }
+
+    public override void SwitchMenu(Canvas otherMenu)
+    {
+        SaveSettings();
+        base.SwitchMenu(otherMenu);
+    }
+
+    void SaveSettings()
+    {
+
     }
 }

@@ -44,7 +44,7 @@ public static class MathHelper
         return (int)Mathf.Pow(10, num);
     }
 
-    //return i as a string in
+    //return i as a string in number format
     public static string ConvertToString(int i)
     {
         return i.ToString(IntDisplayFormat);

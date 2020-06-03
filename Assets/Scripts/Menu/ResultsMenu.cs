@@ -7,7 +7,7 @@ using static GameSettings;
 public class ResultsMenu : Menu
 {
     [SerializeField] TextMeshProUGUI gameStats;
-    public const string TimeDisplayFormat = "m':'ss'.'f";
+    const string TimeDisplayFormat = "m':'ss'.'f";
 
     protected override void Awake()
     {
@@ -19,7 +19,7 @@ public class ResultsMenu : Menu
     {
         OpenMenu(thisMenu);
 
-        gameStats.text = $"Score: {numQuestionsCorrect} / {numQuestionsAnswered} ({(numQuestionsCorrect * 100f / numQuestionsAnswered).ToString("F1")}%){'\n'}";
+        gameStats.text = $"Score: {numCorrectAnswers} / {questionCount} ({(numCorrectAnswers * 100f / questionCount).ToString("F1")}%){'\n'}";
 
         if (selectedGameMode == GameMode.Classic)
         {
@@ -27,7 +27,7 @@ public class ResultsMenu : Menu
             gameStats.text += $"Time: {finalTime} ";
         }
 
-        string avgTime = TimeSpan.FromSeconds(gameTime / numQuestionsAnswered).ToString(TimeDisplayFormat);
+        string avgTime = TimeSpan.FromSeconds(gameTime / questionCount).ToString(TimeDisplayFormat);
         gameStats.text += $"(avg.: {avgTime})";
     }
 
