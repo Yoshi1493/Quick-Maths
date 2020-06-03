@@ -38,6 +38,6 @@ public class ResultsMenu : Menu
 
     public void OnSelectBackToMainMenu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Main");
     }
 }
