@@ -36,4 +36,8 @@ public static class GameSettings
     public const float minTimerDuration = 60f;
     public const float maxTimerDuration = 300f;
     #endregion
+
+    #region Player Settings
+    public static PlayerSettings playerSettings = new PlayerSettings();
+    #endregion
 }

@@ -41,12 +41,7 @@ public class DifficultySettingsMenu : Menu
 
     public override void SwitchMenu(Canvas otherMenu)
     {
-        SaveSettings();
+        FileHandler.SaveSettings();
         base.SwitchMenu(otherMenu);
-    }
-
-    void SaveSettings()
-    {
-
     }
 }

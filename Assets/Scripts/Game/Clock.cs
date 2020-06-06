@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-using static PlayerSettings;
+using static GameSettings;
 
 public class Clock : MonoBehaviour
 {
@@ -25,7 +25,7 @@ public class Clock : MonoBehaviour
             time -= Time.deltaTime;
         }
 
-        GetComponent<GameController>().gameOverAction?.Invoke(timerDuration);
+        GetComponent<GameController>().gameOverAction?.Invoke(playerSettings.timerDuration);
     }
 
     public void StartClock(float startTime)

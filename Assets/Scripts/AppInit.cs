@@ -5,12 +5,7 @@ public class AppInit : MonoBehaviour
 {
     void Awake()
     {
-        GetPlayerPrefs();
+        FileHandler.LoadSettings();
         SceneManager.LoadScene(1);
-    }
-
-    void GetPlayerPrefs()
-    {
-        //to-do: load player settings from PlayerPrefs
     }
 }

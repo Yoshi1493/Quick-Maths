@@ -3,7 +3,6 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using static GameSettings;
-using static PlayerSettings;
 using static MathHelper;
 
 public class GameController : MonoBehaviour
@@ -31,15 +30,15 @@ public class GameController : MonoBehaviour
     {
         numCorrectAnswers = 0;
 
-        GenerateQuestions(questionCount);
+        GenerateQuestions(playerSettings.questionCount);
 
-        switch (selectedGameMode)
+        switch (playerSettings.selectedGameMode)
         {
             case GameMode.Classic:
                 clock.StartClock(0);
                 break;
             case GameMode.Timed:
-                clock.StartClock(timerDuration);
+                clock.StartClock(playerSettings.timerDuration);
                 break;
         }
     }
@@ -148,7 +147,7 @@ public class GameController : MonoBehaviour
         }
 
         //check which game mode was selected
-        if (selectedGameMode == GameMode.Classic)
+        if (playerSettings.selectedGameMode == GameMode.Classic)
         {
             if (answers.Count == 0)
             {

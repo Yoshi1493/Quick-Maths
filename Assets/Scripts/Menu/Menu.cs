@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using static GameSettings;
-using static PlayerSettings;
 
 public class Menu : MonoBehaviour
 {
@@ -30,7 +29,7 @@ public class Menu : MonoBehaviour
 
     public void LoadGame(int gameMode)
     {
-        selectedGameMode = (GameMode)gameMode;
+        playerSettings.selectedGameMode = (GameMode)gameMode;
         SceneManager.LoadScene("Game");
     }
 }

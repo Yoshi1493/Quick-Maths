@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using static GameSettings;
-using static PlayerSettings;
 
 public class GameSettingsMenu : Menu
 {
@@ -45,30 +44,25 @@ public class GameSettingsMenu : Menu
 
     public void OnChangeQuestionCount(int changeAmount)
     {
-        questionCount = Mathf.Clamp(questionCount + changeAmount, minQuestionCount, maxQuestionCount);
+        playerSettings.questionCount = Mathf.Clamp(playerSettings.questionCount + changeAmount, minQuestionCount, maxQuestionCount);
 
-        questionCountButtons[0].interactable = questionCount > minQuestionCount;
-        questionCountButtons[1].interactable = questionCount < maxQuestionCount;
-        questionCountDisplay.text = questionCount.ToString();
+        questionCountButtons[0].interactable = playerSettings.questionCount > minQuestionCount;
+        questionCountButtons[1].interactable = playerSettings.questionCount < maxQuestionCount;
+        questionCountDisplay.text = playerSettings.questionCount.ToString();
     }
 
     public void OnChangeTimerDuration(int changeAmount)
     {
-        timerDuration = Mathf.Clamp(timerDuration + changeAmount, minTimerDuration, maxTimerDuration);
+        playerSettings.timerDuration = Mathf.Clamp(playerSettings.timerDuration + changeAmount, minTimerDuration, maxTimerDuration);
 
-        timerDurationButtons[0].interactable = timerDuration > minTimerDuration;
-        timerDurationButtons[1].interactable = timerDuration < maxTimerDuration;
-        timerDurationDisplay.text = TimeSpan.FromSeconds(timerDuration).ToString(TimeDisplayFormat);
+        timerDurationButtons[0].interactable = playerSettings.timerDuration > minTimerDuration;
+        timerDurationButtons[1].interactable = playerSettings.timerDuration < maxTimerDuration;
+        timerDurationDisplay.text = TimeSpan.FromSeconds(playerSettings.timerDuration).ToString(TimeDisplayFormat);
     }
 
     public override void SwitchMenu(Canvas otherMenu)
     {
-        SaveSettings();
+        FileHandler.SaveSettings();
         base.SwitchMenu(otherMenu);
-    }
-
-    void SaveSettings()
-    {
-
     }
 }

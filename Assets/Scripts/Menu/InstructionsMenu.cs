@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using static PlayerSettings;
+using static GameSettings;
 
 public class InstructionsMenu : Menu
 {
@@ -26,7 +26,7 @@ public class InstructionsMenu : Menu
         //display instructions for appropriate game mode
         for (int i = 0; i < instructions.Count; i++)
         {
-            instructions[i].SetActive(i == (int)selectedGameMode);
+            instructions[i].SetActive(i == (int)playerSettings.selectedGameMode);
         }
 
         timerImage = countdownTimer.GetComponent<Image>();
@@ -39,7 +39,7 @@ public class InstructionsMenu : Menu
         //start coroutine only if it's not in progress already
         if (countdown == null)
         {
-            instructions[(int)selectedGameMode].SetActive(false);       //hide instructions
+            instructions[(int)playerSettings.selectedGameMode].SetActive(false);       //hide instructions
             countdownTimer.SetActive(true);                             //display countdown timer
 
             countdown = Countdown();                                    //assign countdown
