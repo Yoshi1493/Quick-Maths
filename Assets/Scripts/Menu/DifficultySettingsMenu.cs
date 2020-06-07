@@ -11,7 +11,7 @@ public class DifficultySettingsMenu : Menu
 
     public void OnToggleQuestionType(int questionType)
     {
-        questionSettings[(QuestionType)questionType] = (enableQuestionToggles[questionType].isOn, questionSettings[(QuestionType)questionType].difficulty);
+        playerSettings.questionSettings[(QuestionType)questionType] = (enableQuestionToggles[questionType].isOn, playerSettings.questionSettings[(QuestionType)questionType].difficulty);
 
         //disable all enable question toggles if there's only 1 toggle left on
         //(to avoid the player being able to disable all question types)
@@ -23,7 +23,7 @@ public class DifficultySettingsMenu : Menu
 
     public void OnChangeDifficulty(int questionType)
     {
-        questionSettings[(QuestionType)questionType] = (questionSettings[(QuestionType)questionType].enabled, (int)difficultySliders[questionType].value);
+        playerSettings.questionSettings[(QuestionType)questionType] = (playerSettings.questionSettings[(QuestionType)questionType].enabled, (int)difficultySliders[questionType].value);
     }
 
     public override void SwitchMenu(Canvas otherMenu)

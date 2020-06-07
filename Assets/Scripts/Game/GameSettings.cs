@@ -17,15 +17,6 @@ public static class GameSettings
         Division
     }
 
-    public static Dictionary<QuestionType, (bool enabled, int difficulty)> questionSettings = new Dictionary<QuestionType, (bool, int)>
-    {
-        [QuestionType.Addition] = (true, 0),
-        [QuestionType.Subtraction] = (true, 0),
-        [QuestionType.Multiplication] = (true, 0),
-        [QuestionType.Division] = (true, 0)
-    };
-
-    public static Queue<int> answers = new Queue<int>();
     public static int numCorrectAnswers;
     #endregion
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using static GameSettings;
@@ -42,6 +43,7 @@ public static class FileHandler
 [Serializable]
 public class PlayerSettings
 {
+    public Dictionary<QuestionType, (bool enabled, int difficulty)> questionSettings;
     public GameMode selectedGameMode;
     public bool clockDisplayEnabled;
     public int questionCount;
@@ -49,6 +51,14 @@ public class PlayerSettings
 
     public PlayerSettings()
     {
+        questionSettings = new Dictionary<QuestionType, (bool enabled, int difficulty)>
+        {
+            [QuestionType.Addition] = (true, 0),
+            [QuestionType.Subtraction] = (true, 0),
+            [QuestionType.Multiplication] = (true, 0),
+            [QuestionType.Division] = (true, 0)
+        };
+
         selectedGameMode = GameMode.Classic;
         clockDisplayEnabled = false;
         questionCount = minQuestionCount;

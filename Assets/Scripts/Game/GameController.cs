@@ -8,6 +8,7 @@ using static MathHelper;
 public class GameController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI questionDisplayBox;
+    Queue<int> answers = new Queue<int>();
 
     Clock clock;
     public delegate void GameOverAction(float finalTime);
@@ -47,7 +48,7 @@ public class GameController : MonoBehaviour
     void GenerateQuestions(int amount)
     {
         //sort questionSettings such that all operations that are enabled are at the front of the dictionary
-        var _questionSettings = questionSettings.OrderByDescending(i => i.Value);
+        var _questionSettings = playerSettings.questionSettings.OrderByDescending(i => i.Value);
 
         //find how many operations are enabled
         int numEnabledQuestionTypes = _questionSettings.Count(op => op.Value.enabled);
@@ -56,7 +57,7 @@ public class GameController : MonoBehaviour
         {
             //generate a question, randomly based on one of the enabled operations
             QuestionType randQuestionType = _questionSettings.ElementAt(Random.Range(0, numEnabledQuestionTypes)).Key;
-            string question = GenerateQuestion(randQuestionType, questionSettings[randQuestionType].difficulty);
+            string question = GenerateQuestion(randQuestionType, playerSettings.questionSettings[randQuestionType].difficulty);
 
             //append question to question display box
             questionDisplayBox.text += question + '\n';
