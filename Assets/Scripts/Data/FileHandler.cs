@@ -67,6 +67,7 @@ public class PlayerSettings
 
     public void UpdateSettings(PlayerSettings ps)
     {
+        questionSettings = ps.questionSettings;
         selectedGameMode = ps.selectedGameMode;
         clockDisplayEnabled = ps.clockDisplayEnabled;
         questionCount = ps.questionCount;
