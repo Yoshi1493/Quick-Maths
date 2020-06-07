@@ -34,6 +34,7 @@ public static class FileHandler
         PlayerSettings ps = bf.Deserialize(file) as PlayerSettings;
         file.Close();
 
+        if (playerSettings == null) { playerSettings = new PlayerSettings(); }
         playerSettings.UpdateSettings(ps);
     }
 }
@@ -41,12 +42,18 @@ public static class FileHandler
 [Serializable]
 public class PlayerSettings
 {
-    public GameMode selectedGameMode = GameMode.Classic;
-    public bool clockDisplayEnabled = false;
-    public int questionCount = minQuestionCount;
-    public float timerDuration = minTimerDuration;
+    public GameMode selectedGameMode;
+    public bool clockDisplayEnabled;
+    public int questionCount;
+    public float timerDuration;
 
-    public PlayerSettings() { }
+    public PlayerSettings()
+    {
+        selectedGameMode = GameMode.Classic;
+        clockDisplayEnabled = false;
+        questionCount = minQuestionCount;
+        timerDuration = minTimerDuration;
+    }
 
     public void UpdateSettings(PlayerSettings ps)
     {

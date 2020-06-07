@@ -38,6 +38,6 @@ public static class GameSettings
     #endregion
 
     #region Player Settings
-    public static PlayerSettings playerSettings = new PlayerSettings();
+    public static PlayerSettings playerSettings;
     #endregion
 }
