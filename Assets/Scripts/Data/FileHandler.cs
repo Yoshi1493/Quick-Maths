@@ -28,17 +28,16 @@ public static class FileHandler
 
         Directory.CreateDirectory(directoryPath);
 
-        if (File.Exists(filePath)) { file = File.OpenRead(filePath); }
-        else { file = File.Create(filePath); }
-
-        try
+        if (File.Exists(filePath))
         {
+            file = File.OpenRead(filePath);
             BinaryFormatter bf = new BinaryFormatter();
             ps = bf.Deserialize(file) as PlayerSettings;
             file.Close();
         }
-        catch (SerializationException)
+        else
         {
+            file = File.Create(filePath);
             ps = new PlayerSettings();
         }
 
