@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using static GameSettings;
 
@@ -66,7 +65,7 @@ public class PlayerSettings
         };
 
         selectedGameMode = GameMode.Classic;
-        clockDisplayEnabled = false;
+        clockDisplayEnabled = true;
         questionCount = minQuestionCount;
         timerDuration = minTimerDuration;
     }

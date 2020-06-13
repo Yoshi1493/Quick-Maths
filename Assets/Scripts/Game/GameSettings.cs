@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-public static class GameSettings
+﻿public static class GameSettings
 {
     #region Game Data
     public enum GameMode
@@ -26,6 +24,8 @@ public static class GameSettings
 
     public const float minTimerDuration = 60f;
     public const float maxTimerDuration = 300f;
+
+    public const string TimeDisplayFormat = "m':'ss";
     #endregion
 
     #region Player Settings
