@@ -2,7 +2,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static GameSettings;
 
 public class Keyboard : MonoBehaviour
 {
@@ -15,10 +14,10 @@ public class Keyboard : MonoBehaviour
     {
         keyboardButtons = GetComponentsInChildren<Button>();
 
-        FindObjectOfType<InstructionsMenu>().GameStartAction += OnGameStart;
+        FindObjectOfType<Countdown>().StartGameAction += OnStartGame;
     }
 
-    //append the inputted number to the answer display
+    //append <number> to the answer display
     public void OnInputNumber(int number)
     {
         answerDisplay.text += number.ToString();
@@ -47,7 +46,7 @@ public class Keyboard : MonoBehaviour
     }
 
     //enable all keyboard buttons
-    void OnGameStart()
+    void OnStartGame()
     {
         foreach (var button in keyboardButtons)
         {

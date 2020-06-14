@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
+using TMPro;
 using static GameSettings;
 using static MathHelper;
 
@@ -17,12 +17,15 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         clock = GetComponent<Clock>();
+        clock.CountdownOverAction += OnGameOver;
 
-        FindObjectOfType<InstructionsMenu>().GameStartAction += OnGameStart;
+        FindObjectOfType<Countdown>().StartGameAction += OnStartGame;
         FindObjectOfType<Keyboard>().SubmitAnswerAction += OnSubmitAnswer;
+
+        GenerateQuestions(playerSettings.questionCount);
     }
 
-    void OnGameStart()
+    void OnStartGame()
     {
         enabled = true;
     }
@@ -31,7 +34,7 @@ public class GameController : MonoBehaviour
     {
         numCorrectAnswers = 0;
 
-        GenerateQuestions(playerSettings.questionCount);
+        questionDisplayBox.enabled = true;
 
         switch (playerSettings.selectedGameMode)
         {
@@ -152,12 +155,18 @@ public class GameController : MonoBehaviour
         {
             if (answers.Count == 0)
             {
-                gameOverAction?.Invoke(clock.StopClock());      //stop the clock if no questions remain
+                clock.StopClock();
+                OnGameOver(clock.time);
             }
         }
         else
         {
             GenerateQuestions(1);                               //for all other difficulties, continue generating questions
         }
+    }
+
+    void OnGameOver(float finalTime)
+    {
+        gameOverAction?.Invoke(finalTime);
     }
 }

@@ -5,34 +5,40 @@ using TMPro;
 
 public class Countdown : MonoBehaviour
 {
-    Image timerImage;
-    TextMeshProUGUI timerDisplay;
+    [SerializeField] Image timerImage;
+    [SerializeField] TextMeshProUGUI timerDisplay;
 
-    [SerializeField] float countdownTime;
-    public event System.Action GameStartAction;
+    const float CountdownTime = 3f;
+    public event System.Action StartGameAction;
 
     void Awake()
     {
-        timerImage = GetComponent<Image>();
-        timerDisplay = GetComponentInChildren<TextMeshProUGUI>();
-
-        FindObjectOfType<InstructionsMenu>().GameStartAction += OnGameStart;
+        FindObjectOfType<InstructionsMenu>().StartCountdownAction += OnStartCountdown;
     }
 
-    void OnGameStart()
+    void OnStartCountdown()
     {
-        gameObject.SetActive(true);
+        enabled = true;
     }
 
     IEnumerator Start()
     {
-        float currentTime = countdownTime;
+        timerImage.gameObject.SetActive(true);
+        float timeRemaining = CountdownTime;
 
-        while (currentTime > 0)
+        while (timeRemaining > 0)
         {
             yield return new WaitForEndOfFrame();
-            currentTime -= Time.deltaTime;
+            timeRemaining -= Time.deltaTime;
 
+            //interpolate timer image's fill amount from 1 to 0 over CountdownTime seconds
+            timerImage.fillAmount = timeRemaining / CountdownTime;
+
+            //change timer display text to show timeRemaining (rounded up)
+            timerDisplay.text = Mathf.CeilToInt(timeRemaining).ToString();
         }
+
+        StartGameAction?.Invoke();
+        gameObject.SetActive(false);
     }
 }

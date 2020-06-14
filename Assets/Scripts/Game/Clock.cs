@@ -1,11 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using static GameSettings;
 
 public class Clock : MonoBehaviour
 {
+    public event Action<float> CountdownOverAction;
+
     IEnumerator clock;
-    float time;
+    public float time { get; private set; }
     bool paused;
 
     IEnumerator CountUp()
@@ -25,7 +28,7 @@ public class Clock : MonoBehaviour
             time -= Time.deltaTime;
         }
 
-        GetComponent<GameController>().gameOverAction?.Invoke(playerSettings.timerDuration);
+        CountdownOverAction?.Invoke(playerSettings.timerDuration);
     }
 
     public void StartClock(float startTime)
@@ -34,10 +37,9 @@ public class Clock : MonoBehaviour
         StartCoroutine(clock);
     }
 
-    public float StopClock()
+    public void StopClock()
     {
         StopCoroutine(clock);
-        return time;
     }
 
     public void SetPaused(bool state)
