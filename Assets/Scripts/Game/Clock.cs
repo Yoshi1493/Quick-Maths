@@ -33,7 +33,8 @@ public class Clock : MonoBehaviour
 
     public void StartClock(float startTime)
     {
-        clock = startTime == 0 ? CountUp() : CountDown();
+        time = startTime;
+        clock = time == 0 ? CountUp() : CountDown();
         StartCoroutine(clock);
     }
 

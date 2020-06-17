@@ -8,10 +8,25 @@ public class ClockDisplay : MonoBehaviour
     [SerializeField] Clock clock;
     TextMeshProUGUI timeDisplay;
     const string MonospaceTag = "<mspace=30>";
+
     void Awake()
     {
         timeDisplay = GetComponent<TextMeshProUGUI>();
-        gameObject.SetActive(playerSettings.clockDisplayEnabled);
+
+        if (playerSettings.clockDisplayEnabled)
+        {
+            gameObject.SetActive(true);
+            FindObjectOfType<Countdown>().StartGameAction += OnStartGame;
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    void OnStartGame()
+    {
+        enabled = true;
     }
 
     void Update()
