@@ -730,13 +730,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 145931472}
-    characterCount: 11
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -2233,7 +2233,9 @@ PrefabInstance:
     - target: {fileID: 552240783262985803, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
         type: 3}
       propertyPath: m_text
-      value: Settings
+      value: 'Quick
+
+        Maths'
       objectReference: {fileID: 0}
     - target: {fileID: 552240783262985803, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
         type: 3}
@@ -2446,11 +2448,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 552240783262985813, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 552240783262985813, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
-        type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -2487,11 +2484,6 @@ PrefabInstance:
     - target: {fileID: 552240783262985813, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 552240783262985813, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 552240783262985813, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
@@ -2537,12 +2529,12 @@ PrefabInstance:
     - target: {fileID: 552240783262985813, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -200
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 552240783262985803, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 8
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 552240783262985803, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
         type: 3}
@@ -2856,13 +2848,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 928356743}
-    characterCount: 3
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 1
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -3398,13 +3390,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1128718739}
-    characterCount: 16
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -3859,13 +3851,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1207043564}
-    characterCount: 4
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 2
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -4141,11 +4133,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 552240783262985813, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 552240783262985813, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
-        type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -4182,11 +4169,6 @@ PrefabInstance:
     - target: {fileID: 552240783262985813, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 552240783262985813, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 552240783262985813, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
@@ -4228,6 +4210,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 552240783262985813, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 552240783262985803, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
         type: 3}
@@ -6010,13 +5997,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1640087054}
-    characterCount: 18
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -6718,9 +6705,9 @@ PrefabInstance:
     - target: {fileID: 552240783262985803, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
         type: 3}
       propertyPath: m_text
-      value: 'Select
+      value: 'Quick
 
-        Game Mode'
+        Maths'
       objectReference: {fileID: 0}
     - target: {fileID: 552240783262985803, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
         type: 3}
@@ -7859,13 +7846,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2106310160}
-    characterCount: 12
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -8032,7 +8019,7 @@ PrefabInstance:
     - target: {fileID: 552240783262985803, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 88
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 552240783262985803, guid: 168fdd8ede0e4fc43be5be2a754f50a8,
         type: 3}
