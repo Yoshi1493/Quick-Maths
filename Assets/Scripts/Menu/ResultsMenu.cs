@@ -19,7 +19,7 @@ public class ResultsMenu : Menu
     {
         OpenMenu(thisMenu);
 
-        gameStats.text = $"Score: {numCorrectAnswers} / {playerSettings.questionCount} ({(numCorrectAnswers * 100f / playerSettings.questionCount).ToString("F1")}%){'\n'}";
+        gameStats.text = $"Score: {correctAnswerCount} / {answerCount} ({(correctAnswerCount * 100f / answerCount).ToString("F1")}%){'\n'}";
 
         if (playerSettings.selectedGameMode == GameMode.Classic)
         {
@@ -27,7 +27,7 @@ public class ResultsMenu : Menu
             gameStats.text += $"Time: {finalTime} ";
         }
 
-        string avgTime = TimeSpan.FromSeconds(gameTime / playerSettings.questionCount).ToString(TimeDisplayFormat);
+        string avgTime = TimeSpan.FromSeconds(gameTime / answerCount).ToString(TimeDisplayFormat);
         gameStats.text += $"(avg.: {avgTime})";
     }
 

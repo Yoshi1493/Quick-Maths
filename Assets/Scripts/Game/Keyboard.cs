@@ -20,6 +20,11 @@ public class Keyboard : MonoBehaviour
     //append <number> to the answer display
     public void OnInputNumber(int number)
     {
+        if (answerDisplay.text == "0")
+        {
+            answerDisplay.text = string.Empty;
+        }
+
         answerDisplay.text += number.ToString();
     }
 

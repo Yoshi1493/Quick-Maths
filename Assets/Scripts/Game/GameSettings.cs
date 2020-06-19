@@ -15,7 +15,8 @@
         Division
     }
 
-    public static int numCorrectAnswers;
+    public static int answerCount;
+    public static int correctAnswerCount;
     #endregion
 
     #region Constants

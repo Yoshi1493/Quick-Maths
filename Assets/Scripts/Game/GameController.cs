@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        numCorrectAnswers = 0;
+        correctAnswerCount = 0;
 
         questionDisplayBox.enabled = true;
 
@@ -143,11 +143,12 @@ public class GameController : MonoBehaviour
 
     void OnSubmitAnswer(int playerInput)
     {
-        int correctAnswer = answers.Dequeue();
+        answerCount++;
 
+        int correctAnswer = answers.Dequeue();
         if (playerInput == correctAnswer)
         {
-            numCorrectAnswers++;
+            correctAnswerCount++;
         }
 
         //check which game mode was selected
