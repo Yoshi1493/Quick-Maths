@@ -21,8 +21,6 @@ public class GameController : MonoBehaviour
 
         FindObjectOfType<Countdown>().StartGameAction += OnStartGame;
         FindObjectOfType<Keyboard>().SubmitAnswerAction += OnSubmitAnswer;
-
-        GenerateQuestions(playerSettings.questionCount);
     }
 
     void OnStartGame()
@@ -32,9 +30,10 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        answerCount = 0;
         correctAnswerCount = 0;
-
-        questionDisplayBox.enabled = true;
+        
+        GenerateQuestions(playerSettings.questionCount);
 
         switch (playerSettings.selectedGameMode)
         {
@@ -92,8 +91,8 @@ public class GameController : MonoBehaviour
                 break;
 
             case QuestionType.Multiplication:
-                num1 = GetRandomNumber(GetNumberRange(questionType, difficulty + 1));
-                num2 = GetRandomNumber(GetNumberRange(questionType, difficulty));
+                num1 = GetRandomNumber(GetNumberRange(questionType, difficulty + 1)) + 1;
+                num2 = GetRandomNumber(GetNumberRange(questionType, difficulty)) + 1;
 
                 output = $"{ConvertToString(num1)} x {ConvertToString(num2)} =";
                 answers.Enqueue(num1 * num2);
