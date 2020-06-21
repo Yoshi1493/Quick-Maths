@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -574,6 +574,16 @@ PrefabInstance:
       propertyPath: m_VerticalFit
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5240411803810423244, guid: a80ff7216ed2e724d936c7d5a106fbf3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240411803810423244, guid: a80ff7216ed2e724d936c7d5a106fbf3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a80ff7216ed2e724d936c7d5a106fbf3, type: 3}
 --- !u!224 &140332810 stripped
@@ -912,7 +922,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 08c81f5cbe16da642a28e467bed8efdd, type: 2}
+      objectReference: {fileID: 2884933945202564423, guid: e48d1b3224ee6344bb94e5cfab986096,
+        type: 2}
     - target: {fileID: 8644893201001146699, guid: a80ff7216ed2e724d936c7d5a106fbf3,
         type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -1199,6 +1210,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1942960880}
+    - target: {fileID: 5240411803810423244, guid: a80ff7216ed2e724d936c7d5a106fbf3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240411803810423244, guid: a80ff7216ed2e724d936c7d5a106fbf3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a80ff7216ed2e724d936c7d5a106fbf3, type: 3}
 --- !u!224 &310437697 stripped
@@ -1691,6 +1712,16 @@ PrefabInstance:
       propertyPath: m_VerticalFit
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5240411803810423244, guid: a80ff7216ed2e724d936c7d5a106fbf3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240411803810423244, guid: a80ff7216ed2e724d936c7d5a106fbf3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a80ff7216ed2e724d936c7d5a106fbf3, type: 3}
 --- !u!224 &461576534 stripped
@@ -1845,7 +1876,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 08c81f5cbe16da642a28e467bed8efdd, type: 2}
+      objectReference: {fileID: 2884933945202564423, guid: e48d1b3224ee6344bb94e5cfab986096,
+        type: 2}
     - target: {fileID: 8644893201001146699, guid: a80ff7216ed2e724d936c7d5a106fbf3,
         type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -3050,7 +3082,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 08c81f5cbe16da642a28e467bed8efdd, type: 2}
+      objectReference: {fileID: 2884933945202564423, guid: e48d1b3224ee6344bb94e5cfab986096,
+        type: 2}
     - target: {fileID: 8644893201001146699, guid: a80ff7216ed2e724d936c7d5a106fbf3,
         type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -4095,6 +4128,16 @@ PrefabInstance:
       propertyPath: m_VerticalFit
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5240411803810423244, guid: a80ff7216ed2e724d936c7d5a106fbf3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240411803810423244, guid: a80ff7216ed2e724d936c7d5a106fbf3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a80ff7216ed2e724d936c7d5a106fbf3, type: 3}
 --- !u!224 &1233077601 stripped
@@ -4410,7 +4453,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 08c81f5cbe16da642a28e467bed8efdd, type: 2}
+      objectReference: {fileID: 2884933945202564423, guid: e48d1b3224ee6344bb94e5cfab986096,
+        type: 2}
     - target: {fileID: 8644893201001146699, guid: a80ff7216ed2e724d936c7d5a106fbf3,
         type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -5056,6 +5100,16 @@ PrefabInstance:
       propertyPath: m_VerticalFit
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5240411803810423244, guid: a80ff7216ed2e724d936c7d5a106fbf3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240411803810423244, guid: a80ff7216ed2e724d936c7d5a106fbf3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a80ff7216ed2e724d936c7d5a106fbf3, type: 3}
 --- !u!224 &1421973225 stripped
@@ -5220,7 +5274,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 08c81f5cbe16da642a28e467bed8efdd, type: 2}
+      objectReference: {fileID: 2884933945202564423, guid: e48d1b3224ee6344bb94e5cfab986096,
+        type: 2}
     - target: {fileID: 8644893201001146699, guid: a80ff7216ed2e724d936c7d5a106fbf3,
         type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -5612,6 +5667,16 @@ PrefabInstance:
       propertyPath: m_VerticalFit
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5240411803810423244, guid: a80ff7216ed2e724d936c7d5a106fbf3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240411803810423244, guid: a80ff7216ed2e724d936c7d5a106fbf3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 58
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a80ff7216ed2e724d936c7d5a106fbf3, type: 3}
 --- !u!224 &1579271816 stripped
@@ -5796,7 +5861,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 08c81f5cbe16da642a28e467bed8efdd, type: 2}
+      objectReference: {fileID: 2884933945202564423, guid: e48d1b3224ee6344bb94e5cfab986096,
+        type: 2}
     - target: {fileID: 8644893201001146699, guid: a80ff7216ed2e724d936c7d5a106fbf3,
         type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -6935,6 +7001,16 @@ PrefabInstance:
       propertyPath: m_VerticalFit
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5240411803810423244, guid: a80ff7216ed2e724d936c7d5a106fbf3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240411803810423244, guid: a80ff7216ed2e724d936c7d5a106fbf3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a80ff7216ed2e724d936c7d5a106fbf3, type: 3}
 --- !u!224 &1924673567 stripped
@@ -7521,7 +7597,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 08c81f5cbe16da642a28e467bed8efdd, type: 2}
+      objectReference: {fileID: 2884933945202564423, guid: e48d1b3224ee6344bb94e5cfab986096,
+        type: 2}
     - target: {fileID: 8644893201001146699, guid: a80ff7216ed2e724d936c7d5a106fbf3,
         type: 3}
       propertyPath: m_hasFontAssetChanged
