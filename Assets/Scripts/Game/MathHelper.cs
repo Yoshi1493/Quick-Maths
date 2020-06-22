@@ -8,7 +8,7 @@ public static class MathHelper
     //return random number within the range (min, max) (exclusive)
     public static int GetRandomNumber((int min, int max) range)
     {
-        return Random.Range(range.min + 1, range.max);
+        return Random.Range(range.min, range.max);
     }
 
     //return random value of <numbers>, excluding the first value

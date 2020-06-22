@@ -132,8 +132,8 @@ public class GameController : MonoBehaviour
                 result.max = TenToThePowerOf((difficulty / 2) + 1);
                 break;
             case QuestionType.Division:
-                result.min = TenToThePowerOf((difficulty % 3) + (difficulty / 3) + 1);
-                result.max = TenToThePowerOf((difficulty % 3) + (difficulty / 3) + 2);
+                result.min = 10 * TenToThePowerOf(difficulty / 2) * (difficulty % 2 * 4 + 1);
+                result.max = 10 * TenToThePowerOf((difficulty + 1) / 2) * ((difficulty + 1) % 2 * 4 + 1);
                 break;
         }
 
