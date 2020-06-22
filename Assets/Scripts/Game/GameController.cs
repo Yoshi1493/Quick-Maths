@@ -21,8 +21,6 @@ public class GameController : MonoBehaviour
 
         FindObjectOfType<Countdown>().StartGameAction += OnStartGame;
         FindObjectOfType<Keyboard>().SubmitAnswerAction += OnSubmitAnswer;
-
-        GenerateQuestions(playerSettings.questionCount);
     }
 
     void OnStartGame()
@@ -32,9 +30,10 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        answerCount = 0;
         correctAnswerCount = 0;
 
-        questionDisplayBox.enabled = true;
+        GenerateQuestions(playerSettings.questionCount);
 
         switch (playerSettings.selectedGameMode)
         {
@@ -129,7 +128,7 @@ public class GameController : MonoBehaviour
                 result.max = TenToThePowerOf(difficulty + 1);
                 break;
             case QuestionType.Multiplication:
-                result.min = TenToThePowerOf(difficulty / 2);
+                result.min = TenToThePowerOf(difficulty / 2) + 1;
                 result.max = TenToThePowerOf((difficulty / 2) + 1);
                 break;
             case QuestionType.Division:

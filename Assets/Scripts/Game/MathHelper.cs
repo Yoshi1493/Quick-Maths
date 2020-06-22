@@ -5,7 +5,7 @@ public static class MathHelper
 {
     const string IntDisplayFormat = "N0";
 
-    //return random number within the range (min, max) (exclusive)
+    //return random number within the range [min, max)
     public static int GetRandomNumber((int min, int max) range)
     {
         return Random.Range(range.min, range.max);
