@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour
                 clock.StartClock(0);
                 break;
             case GameMode.Timed:
-                clock.StartClock(playerSettings.timerDuration);
+                clock.StartClock(playerSettings.timeLimit);
                 break;
         }
     }

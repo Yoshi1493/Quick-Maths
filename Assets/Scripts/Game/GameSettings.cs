@@ -23,8 +23,8 @@
     public const int minQuestionCount = 10;
     public const int maxQuestionCount = 100;
 
-    public const float minTimerDuration = 60f;
-    public const float maxTimerDuration = 300f;
+    public const float minTimeLimit = 60f;
+    public const float maxTimeLimit = 300f;
 
     public const string TimeDisplayFormat = "m':'ss";
     #endregion

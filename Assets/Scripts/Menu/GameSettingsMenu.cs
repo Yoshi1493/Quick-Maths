@@ -23,7 +23,7 @@ public class GameSettingsMenu : Menu
     void InitUIObjects()
     {
         UpdateQuestionCountButtons();
-        UpdateTimerDurationButtons();
+        UpdateTimerLimitButtons();
         UpdateClockToggleDisplay();
     }
 
@@ -34,11 +34,11 @@ public class GameSettingsMenu : Menu
         questionCountDisplay.text = playerSettings.questionCount.ToString();
     }
 
-    void UpdateTimerDurationButtons()
+    void UpdateTimerLimitButtons()
     {
-        timerDurationButtons[0].interactable = playerSettings.timerDuration > minTimerDuration;
-        timerDurationButtons[1].interactable = playerSettings.timerDuration < maxTimerDuration;
-        timerDurationDisplay.text = TimeSpan.FromSeconds(playerSettings.timerDuration).ToString(TimeDisplayFormat);
+        timerDurationButtons[0].interactable = playerSettings.timeLimit > minTimeLimit;
+        timerDurationButtons[1].interactable = playerSettings.timeLimit < maxTimeLimit;
+        timerDurationDisplay.text = TimeSpan.FromSeconds(playerSettings.timeLimit).ToString(TimeDisplayFormat);
     }
 
     void UpdateClockToggleDisplay()
@@ -52,10 +52,10 @@ public class GameSettingsMenu : Menu
         UpdateQuestionCountButtons();
     }
 
-    public void OnChangeTimerDuration(int changeAmount)
+    public void OnChangeTimeLimit(int changeAmount)
     {
-        playerSettings.timerDuration = Mathf.Clamp(playerSettings.timerDuration + changeAmount, minTimerDuration, maxTimerDuration);
-        UpdateTimerDurationButtons();
+        playerSettings.timeLimit = Mathf.Clamp(playerSettings.timeLimit + changeAmount, minTimeLimit, maxTimeLimit);
+        UpdateTimerLimitButtons();
     }
 
     public void OnToggleClockDisplay()

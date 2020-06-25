@@ -52,7 +52,7 @@ public class PlayerSettings
     public GameMode selectedGameMode;
     public bool clockDisplayEnabled;
     public int questionCount;
-    public float timerDuration;
+    public float timeLimit;
 
     public PlayerSettings()
     {
@@ -67,7 +67,7 @@ public class PlayerSettings
         selectedGameMode = GameMode.Classic;
         clockDisplayEnabled = true;
         questionCount = minQuestionCount;
-        timerDuration = minTimerDuration;
+        timeLimit = minTimeLimit;
     }
 
     public void UpdateSettings(PlayerSettings ps)
@@ -76,6 +76,6 @@ public class PlayerSettings
         selectedGameMode = ps.selectedGameMode;
         clockDisplayEnabled = ps.clockDisplayEnabled;
         questionCount = ps.questionCount;
-        timerDuration = ps.timerDuration;
+        timeLimit = ps.timeLimit;
     }
 }

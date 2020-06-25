@@ -28,7 +28,7 @@ public class Clock : MonoBehaviour
             time -= Time.deltaTime;
         }
 
-        CountdownOverAction?.Invoke(playerSettings.timerDuration);
+        CountdownOverAction?.Invoke(playerSettings.timeLimit);
     }
 
     public void StartClock(float startTime)
