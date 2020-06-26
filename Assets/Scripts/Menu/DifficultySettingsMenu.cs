@@ -54,10 +54,4 @@ public class DifficultySettingsMenu : Menu
     {
         playerSettings.questionSettings[(QuestionType)questionType] = (playerSettings.questionSettings[(QuestionType)questionType].enabled, (int)difficultySliders[questionType].value);
     }
-
-    public override void SwitchMenu(Canvas otherMenu)
-    {
-        FileHandler.SaveSettings();
-        base.SwitchMenu(otherMenu);
-    }
 }

@@ -42,6 +42,9 @@ public static class FileHandler
 
         if (playerSettings == null) { playerSettings = new PlayerSettings(); }
         playerSettings.UpdateSettings(ps);
+
+        file.Close();
+        SaveSettings();
     }
 }
 

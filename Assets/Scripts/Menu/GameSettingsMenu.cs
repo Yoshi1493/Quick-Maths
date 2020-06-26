@@ -12,7 +12,7 @@ public class GameSettingsMenu : Menu
     [SerializeField] Button[] timerDurationButtons = new Button[2];
     [SerializeField] TextMeshProUGUI timerDurationDisplay;
 
-    [SerializeField] TextMeshProUGUI clockToggleDisplay;
+    [SerializeField] Toggle clockToggle;
 
     protected override void Awake()
     {
@@ -43,7 +43,7 @@ public class GameSettingsMenu : Menu
 
     void UpdateClockToggleDisplay()
     {
-        clockToggleDisplay.text = "Clock: " + (playerSettings.clockDisplayEnabled ? "on" : "off");
+        clockToggle.isOn = playerSettings.clockDisplayEnabled;
     }
 
     public void OnChangeQuestionCount(int changeAmount)
@@ -62,11 +62,5 @@ public class GameSettingsMenu : Menu
     {
         playerSettings.clockDisplayEnabled = !playerSettings.clockDisplayEnabled;
         UpdateClockToggleDisplay();
-    }
-
-    public override void SwitchMenu(Canvas otherMenu)
-    {
-        FileHandler.SaveSettings();
-        base.SwitchMenu(otherMenu);
     }
 }
