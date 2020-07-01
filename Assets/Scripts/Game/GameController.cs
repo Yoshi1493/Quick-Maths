@@ -10,48 +10,33 @@ public class GameController : MonoBehaviour
     [SerializeField] TextMeshProUGUI questionDisplayBox;
     Queue<int> answers = new Queue<int>();
 
-    Clock clock;
+    protected Clock clock;
 
     public event System.Action<float, int, int> gameOverAction;
 
-    int answerCount;
+    protected int answerCount;
     int correctAnswerCount;
-    const float ChallengeModeTimeLimit = 60f;
 
-    void Awake()
+    protected virtual void Awake()
     {
         clock = GetComponent<Clock>();
         clock.CountdownOverAction += OnGameOver;
-
-        FindObjectOfType<Countdown>().StartGameAction += OnStartGame;
+        
         FindObjectOfType<Keyboard>().SubmitAnswerAction += OnSubmitAnswer;
     }
 
-    void OnStartGame()
+    protected void OnStartGame()
     {
         enabled = true;
     }
 
-    void Start()
+    protected virtual void Start()
     {
         GenerateQuestions(playerSettings.questionCount);
-
-        switch (playerSettings.selectedGameMode)
-        {
-            case GameMode.Classic:
-                clock.StartClock(0);
-                break;
-            case GameMode.Timed:
-                clock.StartClock(playerSettings.timeLimit);
-                break;
-            case GameMode.Challenge:
-                clock.StartClock(ChallengeModeTimeLimit);
-                break;
-        }
     }
 
     //generate <amount> random questions based on enabled question types and question diffculty
-    void GenerateQuestions(int amount)
+    protected void GenerateQuestions(int amount)
     {
         //sort questionSettings such that all operations that are enabled are at the front of the dictionary
         var _questionSettings = playerSettings.questionSettings.OrderByDescending(i => i.Value);
@@ -144,42 +129,31 @@ public class GameController : MonoBehaviour
         return result;
     }
 
-    void OnSubmitAnswer(int playerInput)
+    protected virtual void OnSubmitAnswer(int playerInput)
     {
-        answerCount++;
-
         int correctAnswer = answers.Dequeue();
         if (playerInput == correctAnswer)
         {
-            correctAnswerCount++;
+            OnSubmitCorrectAnswer();
         }
         else
         {
-            if (playerSettings.selectedGameMode == GameMode.Challenge)
-            {
-                clock.StopClock();
-                OnGameOver(ChallengeModeTimeLimit - clock.time);
-            }
-        }
-
-        switch (playerSettings.selectedGameMode)
-        {
-            case GameMode.Classic:
-                if (answers.Count == 0)
-                {
-                    clock.StopClock();
-                    OnGameOver(clock.time);
-                }
-                break;
-
-            case GameMode.Timed:
-            case GameMode.Challenge:
-                GenerateQuestions(1);
-                break;
+            OnSubmitIncorrectAnswer();
         }
     }
 
-    void OnGameOver(float finalTime)
+    void OnSubmitCorrectAnswer()
+    {
+        answerCount++;
+        correctAnswerCount++;
+    }
+
+    protected virtual void OnSubmitIncorrectAnswer()
+    {
+        answerCount++;
+    }
+
+    protected void OnGameOver(float finalTime)
     {
         gameOverAction?.Invoke(finalTime, answerCount, correctAnswerCount);
     }
