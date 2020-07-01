@@ -1,0 +1,44 @@
+The following table displays the range of values that a question can randomly generate, based on difficulty level.
+
+= syntax =
+
+<num1 range> <operator> <num2 range>
+[] -> inclusive
+() -> exclusive
+
+==========
+
+- Addition - 
+
+Lv. 1: [1, 10) + [1, 10)
+Lv. 2: [10, 100) + [10, 100)
+Lv. 3: [100, 1000) + [100, 1000)
+Lv. 4: [1000, 10000) + [1000, 10000)
+Lv. 5: [10000, 100000) + [10000, 100000)
+
+
+- Subtraction - 
+
+Lv. 1: [1, 10) - [1, num1]
+Lv. 2: [10, 100) - [10, num1]
+Lv. 3: [100, 1000) - [100, num1]
+Lv. 4: [1000, 10000) - [1000, num1]
+Lv. 5: [10000, 100000) - [10000, num1]
+
+
+- Multiplication - 
+
+Lv. 1: [1, 10) x [1, 10)
+Lv. 2: [11, 100) x [1, 10)
+Lv. 3: [11, 100) x [11, 100)
+Lv. 4: [101, 1000) x [11, 100)
+Lv. 5: [101, 1000) x [101, 1000)
+
+
+- Division -
+
+Lv. 1: [10, 50) ÅÄ <any factor of num1>
+Lv. 2: [50, 100) ÅÄ <any factor of num1>
+Lv. 3: [100, 500) ÅÄ <any factor of num1> 
+Lv. 4: [500, 1000) ÅÄ <any factor of num1>
+Lv. 5: [1000, 5000) ÅÄ <any factor of num1>

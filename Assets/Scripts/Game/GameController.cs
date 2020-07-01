@@ -11,8 +11,12 @@ public class GameController : MonoBehaviour
     Queue<int> answers = new Queue<int>();
 
     Clock clock;
-    public delegate void GameOverAction(float finalTime);
-    public GameOverAction gameOverAction;
+
+    public event System.Action<float, int, int> gameOverAction;
+
+    int answerCount;
+    int correctAnswerCount;
+    const float ChallengeModeTimeLimit = 60f;
 
     void Awake()
     {
@@ -30,9 +34,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        answerCount = 0;
-        correctAnswerCount = 0;
-
         GenerateQuestions(playerSettings.questionCount);
 
         switch (playerSettings.selectedGameMode)
@@ -42,6 +43,9 @@ public class GameController : MonoBehaviour
                 break;
             case GameMode.Timed:
                 clock.StartClock(playerSettings.timeLimit);
+                break;
+            case GameMode.Challenge:
+                clock.StartClock(ChallengeModeTimeLimit);
                 break;
         }
     }
@@ -66,7 +70,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    //return 
+    //return a random <questionType> question based on <difficulty>
     string GenerateQuestion(QuestionType questionType, int difficulty)
     {
         string output = "";
@@ -84,7 +88,7 @@ public class GameController : MonoBehaviour
 
             case QuestionType.Subtraction:
                 num1 = GetRandomNumber(GetNumberRange(questionType, difficulty));
-                num2 = GetRandomNumber((GetNumberRange(questionType, difficulty).min, num1));
+                num2 = GetRandomNumber((GetNumberRange(questionType, difficulty).min, num1 + 1));
 
                 output = $"{ConvertToString(num1)} - {ConvertToString(num2)} =";
                 answers.Enqueue(num1 - num2);
@@ -149,24 +153,34 @@ public class GameController : MonoBehaviour
         {
             correctAnswerCount++;
         }
-
-        //check which game mode was selected
-        if (playerSettings.selectedGameMode == GameMode.Classic)
-        {
-            if (answers.Count == 0)
-            {
-                clock.StopClock();
-                OnGameOver(clock.time);
-            }
-        }
         else
         {
-            GenerateQuestions(1);                               //for all other difficulties, continue generating questions
+            if (playerSettings.selectedGameMode == GameMode.Challenge)
+            {
+                clock.StopClock();
+                OnGameOver(ChallengeModeTimeLimit - clock.time);
+            }
+        }
+
+        switch (playerSettings.selectedGameMode)
+        {
+            case GameMode.Classic:
+                if (answers.Count == 0)
+                {
+                    clock.StopClock();
+                    OnGameOver(clock.time);
+                }
+                break;
+
+            case GameMode.Timed:
+            case GameMode.Challenge:
+                GenerateQuestions(1);
+                break;
         }
     }
 
     void OnGameOver(float finalTime)
     {
-        gameOverAction?.Invoke(finalTime);
+        gameOverAction?.Invoke(finalTime, answerCount, correctAnswerCount);
     }
 }

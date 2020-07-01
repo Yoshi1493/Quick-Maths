@@ -4,7 +4,8 @@
     public enum GameMode
     {
         Classic,
-        Timed
+        Timed,
+        Challenge
     }
 
     public enum QuestionType
@@ -14,9 +15,6 @@
         Multiplication,
         Division
     }
-
-    public static int answerCount;
-    public static int correctAnswerCount;
     #endregion
 
     #region Constants

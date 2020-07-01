@@ -15,7 +15,7 @@ public class ResultsMenu : Menu
         FindObjectOfType<GameController>().gameOverAction += OnGameOver;
     }
 
-    void OnGameOver(float gameTime)
+    void OnGameOver(float gameTime, int answerCount, int correctAnswerCount)
     {
         OpenMenu(thisMenu);
 
