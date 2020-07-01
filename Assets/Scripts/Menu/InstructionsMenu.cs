@@ -4,25 +4,22 @@ using static GameSettings;
 
 public class InstructionsMenu : Menu
 {
-    [SerializeField] List<GameObject> instructions;
-
     public event System.Action StartCountdownAction;
 
     protected override void Awake()
     {
         base.Awake();
-
-        //display instructions for appropriate game mode
-        for (int i = 0; i < instructions.Count; i++)
-        {
-            instructions[i].SetActive(i == (int)playerSettings.selectedGameMode);
-        }
+        SetInstructionsActive(true);
     }
     
+    void SetInstructionsActive(bool active)
+    {
+        transform.GetChild((int)playerSettings.selectedGameMode).gameObject.SetActive(active);
+    }
+
     public void StartCountdown()
     {
-        //hide instructions
-        instructions[(int)playerSettings.selectedGameMode].SetActive(false);
+        SetInstructionsActive(false);
 
         StartCountdownAction?.Invoke();
         CloseMenu(thisMenu);
