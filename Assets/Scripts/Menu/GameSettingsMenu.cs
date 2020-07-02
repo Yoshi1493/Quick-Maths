@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using static GameSettings;
 
-public class GameSettingsMenu : Menu
+public class GameSettingsMenu : MonoBehaviour
 {
     [SerializeField] Button[] questionCountButtons = new Button[2];
     [SerializeField] TextMeshProUGUI questionCountDisplay;
@@ -14,9 +14,8 @@ public class GameSettingsMenu : Menu
 
     [SerializeField] Toggle clockToggle;
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
         InitUIObjects();
     }
 

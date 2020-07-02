@@ -45,9 +45,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7762015386302767243}
+  - component: {fileID: 2024530809691193036}
   - component: {fileID: 1231877832225244679}
   - component: {fileID: 3538351246646948407}
-  - component: {fileID: 2024530809691193036}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -75,6 +75,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!222 &2024530809691193036
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547745346793812299}
+  m_CullTransparentMesh: 0
 --- !u!114 &1231877832225244679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,14 +173,6 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
---- !u!222 &2024530809691193036
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1547745346793812299}
-  m_CullTransparentMesh: 0
 --- !u!1 &3879971614089208716
 GameObject:
   m_ObjectHideFlags: 0

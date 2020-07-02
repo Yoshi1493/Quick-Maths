@@ -4,14 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using static GameSettings;
 
-public class DifficultySettingsMenu : Menu
+public class DifficultySettingsMenu : MonoBehaviour
 {
     [SerializeField] Toggle[] enableQuestionToggles = new Toggle[Enum.GetValues(typeof(QuestionType)).Length];
     [SerializeField] Slider[] difficultySliders = new Slider[Enum.GetValues(typeof(QuestionType)).Length];
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
         InitUIObjects();
     }
 

@@ -21,7 +21,7 @@ public class Menu : MonoBehaviour
         menu.enabled = false;
     }
 
-    public void SwitchMenu(Canvas otherMenu)
+    public virtual void SwitchMenu(Canvas otherMenu)
     {
         OpenMenu(otherMenu);
         CloseMenu(thisMenu);
@@ -31,11 +31,5 @@ public class Menu : MonoBehaviour
     {
         playerSettings.selectedGameMode = (GameMode)gameMode;
         SceneManager.LoadScene("Game");
-    }
-
-    public void SaveSettings(Canvas mainMenu)
-    {
-        FileHandler.SaveSettings();
-        SwitchMenu(mainMenu);
     }
 }
