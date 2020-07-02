@@ -24,7 +24,7 @@ public class DifficultySettingsMenu : MonoBehaviour
     {
         for (int i = 0; i < enableQuestionToggles.Length; i++)
         {
-            enableQuestionToggles[i].isOn = playerSettings.questionSettings[(QuestionType)i].enabled;
+            enableQuestionToggles[i].SetIsOnWithoutNotify(playerSettings.questionSettings[(QuestionType)i].enabled);
         }
 
         //disable all enable question toggles if there's only 1 toggle left on

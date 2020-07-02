@@ -42,7 +42,7 @@ public class GameSettingsMenu : MonoBehaviour
 
     void UpdateClockToggleDisplay()
     {
-        clockToggle.isOn = playerSettings.clockDisplayEnabled;
+        clockToggle.SetIsOnWithoutNotify(playerSettings.clockDisplayEnabled);
     }
 
     public void OnChangeQuestionCount(int changeAmount)
