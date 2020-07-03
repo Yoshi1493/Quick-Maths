@@ -28,6 +28,6 @@
     #endregion
 
     #region Player Settings
-    public static PlayerSettings playerSettings;
+    public static PlayerSettings playerSettings = new PlayerSettings();
     #endregion
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using static GameSettings;
 
@@ -12,39 +13,36 @@ public static class FileHandler
 
     public static void SaveSettings()
     {
-        FileStream file;
+        FileStream fs;
 
-        file = File.OpenWrite(filePath);
+        fs = File.OpenWrite(filePath);
         BinaryFormatter bf = new BinaryFormatter();
-        bf.Serialize(file, playerSettings);
-        file.Close();
+        bf.Serialize(fs, playerSettings);
+        fs.Close();
     }
 
     public static void LoadSettings()
     {
-        FileStream file;
+        FileStream fs;
         PlayerSettings ps;
 
         Directory.CreateDirectory(directoryPath);
 
-        if (File.Exists(filePath))
+        if (File.Exists(filePath)) { fs = File.OpenRead(filePath); }
+        else { fs = File.Create(filePath); }
+
+        try
         {
-            file = File.OpenRead(filePath);
             BinaryFormatter bf = new BinaryFormatter();
-            ps = bf.Deserialize(file) as PlayerSettings;
-            file.Close();
+            ps = bf.Deserialize(fs) as PlayerSettings;
+            fs.Close();
         }
-        else
+        catch (SerializationException)
         {
-            file = File.Create(filePath);
             ps = new PlayerSettings();
         }
-
-        if (playerSettings == null) { playerSettings = new PlayerSettings(); }
+        
         playerSettings.UpdateSettings(ps);
-
-        file.Close();
-        SaveSettings();
     }
 }
 
