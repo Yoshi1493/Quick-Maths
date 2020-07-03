@@ -8,24 +8,26 @@ public class Clock : MonoBehaviour
     public event Action<float> CountdownOverAction;
 
     IEnumerator clock;
-    public float time { get; private set; }
-    bool paused;
+    public float _currentTime { get; private set; }
+    public float _elapsedTime { get; private set; }
 
     IEnumerator CountUp()
     {
-        while (!paused)
+        while (true)
         {
             yield return new WaitForEndOfFrame();
-            time += Time.deltaTime;
+            _elapsedTime += Time.deltaTime;
+            _currentTime += Time.deltaTime;
         }
     }
 
     IEnumerator CountDown()
     {
-        while (!paused && time > 0)
+        while (_currentTime > 0)
         {
             yield return new WaitForEndOfFrame();
-            time -= Time.deltaTime;
+            _elapsedTime += Time.deltaTime;
+            _currentTime -= Time.deltaTime;
         }
 
         CountdownOverAction?.Invoke(playerSettings.timeLimit);
@@ -33,8 +35,8 @@ public class Clock : MonoBehaviour
 
     public void StartClock(float startTime)
     {
-        time = startTime;
-        clock = time == 0 ? CountUp() : CountDown();
+        _currentTime = startTime;
+        clock = _currentTime == 0 ? CountUp() : CountDown();
         StartCoroutine(clock);
     }
 
@@ -43,8 +45,8 @@ public class Clock : MonoBehaviour
         StopCoroutine(clock);
     }
 
-    public void SetPaused(bool state)
+    public void AddTime(float amount)
     {
-        paused = state;
+        _currentTime += amount;
     }
 }
