@@ -1,13 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MainMenu : Menu
 {
-    [SerializeField] RectTransform backgroundImage;
-
-    void Start()
+#if UNITY_ANDROID
+    void Update()
     {
-        //backgroundImage.eulerAngles = Vector3.forward * (Random.value < 0.5f ? Random.Range(-20f, -10f) : Random.Range(10f, 20f));
+        if (Input.GetButtonDown("Cancel"))
+        {
+            AndroidJavaObject androidJavaObject = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
+            androidJavaObject.Call<bool>("moveTaskToBack", true);
+        }
     }
+#endif
 }
