@@ -11,6 +11,7 @@ public class QuestionDisplay : MonoBehaviour
     void Awake()
     {
         FindObjectOfType<Keyboard>().SubmitAnswerAction += OnSubmitAnswer;
+        FindObjectOfType<PauseController>().PauseGameAction += SetPausedState;
 
         answerDisplay = answerDisplayBox.GetComponent<TextMeshProUGUI>();
     }
@@ -39,5 +40,11 @@ public class QuestionDisplay : MonoBehaviour
             float yPos = Mathf.Lerp(startPos, endPos, currentLerpTime / totalLerpTime);
             rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, yPos);
         }
+    }
+    
+    void SetPausedState(bool state)
+    {
+        questionDisplayBox.gameObject.SetActive(!state);
+        answerDisplayBox.gameObject.SetActive(!state);
     }
 }
