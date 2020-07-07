@@ -12,11 +12,10 @@ public class Game : MonoBehaviour
 
     protected Clock clock;
 
-    public event System.Action<float, int, int> gameOverAction;
+    public event System.Action<float, int, int> GameOverAction;
 
     int answerCount;
-    protected int correctAnswerCount { get; private set; }
-
+    int correctAnswerCount;
 
     protected virtual void Awake()
     {
@@ -143,6 +142,6 @@ public class Game : MonoBehaviour
 
     protected void OnGameOver(float finalTime)
     {
-        gameOverAction?.Invoke(finalTime, answerCount, correctAnswerCount);
+        GameOverAction?.Invoke(finalTime, answerCount, correctAnswerCount);
     }
 }

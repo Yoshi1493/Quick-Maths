@@ -34,4 +34,9 @@ public class Menu : MonoBehaviour
         playerSettings.selectedGameMode = (GameMode)gameMode;
         SceneManager.LoadScene("Game");
     }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("Main");
+    }
 }

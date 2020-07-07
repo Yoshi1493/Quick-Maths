@@ -12,7 +12,7 @@ public class ResultsMenu : Menu
     protected override void Awake()
     {
         base.Awake();
-        FindObjectOfType<Game>().gameOverAction += OnGameOver;
+        FindObjectOfType<Game>().GameOverAction += OnGameOver;
     }
 
     void OnGameOver(float gameTime, int answerCount, int correctAnswerCount)
@@ -34,10 +34,5 @@ public class ResultsMenu : Menu
     public void OnSelectRetry()
     {
         SceneManager.LoadScene("Game");
-    }
-
-    public void OnSelectBackToMainMenu()
-    {
-        SceneManager.LoadScene("Main");
     }
 }

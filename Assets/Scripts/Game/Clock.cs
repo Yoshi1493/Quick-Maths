@@ -11,13 +11,19 @@ public class Clock : MonoBehaviour
     public float _currentTime { get; private set; }
     public float _elapsedTime { get; private set; }
 
+    public bool _paused { get; private set; }
+
     IEnumerator CountUp()
     {
         while (true)
         {
             yield return new WaitForEndOfFrame();
-            _elapsedTime += Time.deltaTime;
-            _currentTime += Time.deltaTime;
+
+            if (!_paused)
+            {
+                _elapsedTime += Time.deltaTime;
+                _currentTime += Time.deltaTime;
+            }
         }
     }
 
@@ -26,8 +32,12 @@ public class Clock : MonoBehaviour
         while (_currentTime > 0)
         {
             yield return new WaitForEndOfFrame();
-            _elapsedTime += Time.deltaTime;
-            _currentTime -= Time.deltaTime;
+
+            if (!_paused)
+            {
+                _elapsedTime += Time.deltaTime;
+                _currentTime -= Time.deltaTime;
+            }
         }
 
         CountdownOverAction?.Invoke(playerSettings.timeLimit);
@@ -45,8 +55,18 @@ public class Clock : MonoBehaviour
         StopCoroutine(clock);
     }
 
+    public void SetPaused(bool state)
+    {
+        _paused = state;
+    }
+
     public void AddTime(float amount)
     {
         _currentTime += amount;
+    }
+
+    void Awake()
+    {
+        FindObjectOfType<PauseController>().PauseGameAction += SetPaused;
     }
 }
