@@ -29,10 +29,20 @@ public class ResultsMenu : Menu
 
         string avgTime = TimeSpan.FromSeconds(gameTime / answerCount).ToString(TimeDisplayFormat);
         gameStats.text += $"(avg.: {avgTime})";
+
+        Destroy(FindObjectOfType<PauseController>());
     }
 
     public void OnSelectRetry()
     {
         SceneManager.LoadScene("Game");
+    }
+
+    void Update()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            BackToMainMenu();
+        }
     }
 }
