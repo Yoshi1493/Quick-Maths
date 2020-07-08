@@ -15,7 +15,6 @@ public class Keyboard : MonoBehaviour
         keyboardButtons = GetComponentsInChildren<Button>();
 
         FindObjectOfType<Countdown>().StartGameAction += OnStartGame;
-        FindObjectOfType<PauseController>().PauseGameAction += SetPausedState;
     }
 
     //append <number> to the answer display
@@ -57,14 +56,6 @@ public class Keyboard : MonoBehaviour
         foreach (var button in keyboardButtons)
         {
             button.interactable = true;
-        }
-    }
-
-    void SetPausedState(bool state)
-    {
-        foreach (var button in keyboardButtons)
-        {
-            button.interactable = !state;
         }
     }
 }
