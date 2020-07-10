@@ -11,5 +11,7 @@ public class GameController : MonoBehaviour
         {
             gameModes[i].gameObject.SetActive(i == (int)playerSettings.selectedGameMode);
         }
+
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 }
