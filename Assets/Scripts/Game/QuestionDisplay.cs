@@ -27,7 +27,7 @@ public class QuestionDisplay : MonoBehaviour
     IEnumerator Scroll(RectTransform rt)
     {
         float startPos = rt.anchoredPosition.y;
-        float endPos = rt.anchoredPosition.y + 172;
+        float endPos = rt.anchoredPosition.y + 129.16f;
 
         float totalLerpTime = 0.1f;
         float currentLerpTime = 0;

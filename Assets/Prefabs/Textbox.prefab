@@ -69,7 +69,8 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e48d1b3224ee6344bb94e5cfab986096, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: ace1d5ba27971484892a5013a64d3aa0, type: 2}
+  m_sharedMaterial: {fileID: 2884933945202564423, guid: e48d1b3224ee6344bb94e5cfab986096,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 64, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 580601297311418160}
     characterCount: 0

@@ -7,7 +7,7 @@ public class ClockDisplay : MonoBehaviour
 {
     [SerializeField] Clock clock;
     TextMeshProUGUI timeDisplay;
-    const string MonospaceTag = "<mspace=30>";
+    const string MonospaceTag = "<mspace=24>";
 
     void Awake()
     {
