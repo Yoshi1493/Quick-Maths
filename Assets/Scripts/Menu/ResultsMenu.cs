@@ -19,16 +19,23 @@ public class ResultsMenu : Menu
     {
         OpenMenu(thisMenu);
 
-        gameStats.text = $"Score: {correctAnswerCount} / {answerCount} ({(correctAnswerCount * 100f / answerCount).ToString("F1")}%){'\n'}";
+        if (playerSettings.selectedGameMode != GameMode.Challenge)
+        {
+            gameStats.text += $"{correctAnswerCount} / {answerCount} ({(correctAnswerCount * 100f / answerCount).ToString("F1")}%)\n";
+        }
+        else
+        {
+            gameStats.text += $"{correctAnswerCount}\n";
+        }
 
-        if (playerSettings.selectedGameMode == GameMode.Classic)
+        if (playerSettings.selectedGameMode != GameMode.Timed)
         {
             string finalTime = TimeSpan.FromSeconds(gameTime).ToString(TimeDisplayFormat);
-            gameStats.text += $"Time: {finalTime} ";
+            gameStats.text += $"Time: {finalTime}\n";
         }
 
         string avgTime = TimeSpan.FromSeconds(gameTime / answerCount).ToString(TimeDisplayFormat);
-        gameStats.text += $"(avg.: {avgTime})";
+        gameStats.text += $"(avg. time: {avgTime})";
 
         Destroy(FindObjectOfType<PauseController>());
     }
