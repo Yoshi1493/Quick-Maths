@@ -1259,6 +1259,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stats (Button)
       objectReference: {fileID: 0}
+    - target: {fileID: 5878431435117193630, guid: 96177c1dd97432a4ab461dd53b4f50bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5878431435117193631, guid: 96177c1dd97432a4ab461dd53b4f50bb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1327,12 +1332,12 @@ PrefabInstance:
     - target: {fileID: 5878431435117193631, guid: 96177c1dd97432a4ab461dd53b4f50bb,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 157.99
       objectReference: {fileID: 0}
     - target: {fileID: 5878431435117193631, guid: 96177c1dd97432a4ab461dd53b4f50bb,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 76.46
       objectReference: {fileID: 0}
     - target: {fileID: 5878431435117193631, guid: 96177c1dd97432a4ab461dd53b4f50bb,
         type: 3}

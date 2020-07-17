@@ -10,6 +10,8 @@ public class Keyboard : MonoBehaviour
     [SerializeField] TextMeshProUGUI answerDisplay;
     public event Action<int> SubmitAnswerAction;
 
+    const int MaxAnswerLength = 9;
+
     void Awake()
     {
         keyboardButtons = GetComponentsInChildren<Button>();
@@ -25,7 +27,10 @@ public class Keyboard : MonoBehaviour
             answerDisplay.text = string.Empty;
         }
 
-        answerDisplay.text += number.ToString();
+        if (answerDisplay.text.Length < MaxAnswerLength)
+        {
+            answerDisplay.text += number;
+        }
     }
 
     //remove the latest inputted number from the answer display
