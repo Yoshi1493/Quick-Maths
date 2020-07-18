@@ -14,7 +14,7 @@ public class InstructionsMenu : Menu
     
     void SetInstructionsActive(bool active)
     {
-        transform.GetChild((int)playerSettings.selectedGameMode).gameObject.SetActive(active);
+        transform.GetChild((int)selectedGameMode).gameObject.SetActive(active);
     }
 
     public void StartCountdown()

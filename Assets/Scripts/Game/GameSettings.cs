@@ -15,6 +15,8 @@
         Multiplication,
         Division
     }
+
+    public static GameMode selectedGameMode;
     #endregion
 
     #region Constants

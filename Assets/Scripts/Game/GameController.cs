@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < gameModes.Length; i++)
         {
-            gameModes[i].gameObject.SetActive(i == (int)playerSettings.selectedGameMode);
+            gameModes[i].gameObject.SetActive(i == (int)selectedGameMode);
         }
 
         Screen.sleepTimeout = SleepTimeout.NeverSleep;

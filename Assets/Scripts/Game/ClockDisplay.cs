@@ -31,6 +31,6 @@ public class ClockDisplay : MonoBehaviour
 
     void Update()
     {
-        timeDisplay.text = MonospaceTag + TimeSpan.FromSeconds(playerSettings.selectedGameMode == GameMode.Classic ? Mathf.Floor(clock._currentTime) : Mathf.Ceil(clock._currentTime)).ToString(TimeDisplayFormat);
+        timeDisplay.text = MonospaceTag + TimeSpan.FromSeconds(selectedGameMode == GameMode.Classic ? Mathf.Floor(clock._currentTime) : Mathf.Ceil(clock._currentTime)).ToString(TimeDisplayFormat);
     }
 }

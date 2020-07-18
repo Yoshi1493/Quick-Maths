@@ -4,7 +4,7 @@ public class ClassicGame : Game
 {
     protected override void Awake()
     {
-        if (playerSettings.selectedGameMode == GameMode.Classic)
+        if (selectedGameMode == GameMode.Classic)
         {
             base.Awake();
         }

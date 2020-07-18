@@ -56,7 +56,6 @@ public static class FileHandler
 public class PlayerSettings
 {
     public Dictionary<QuestionType, (bool enabled, int difficulty)> questionSettings;
-    public GameMode selectedGameMode;
     public bool clockDisplayEnabled;
     public int questionCount;
     public float timeLimit;
@@ -69,9 +68,7 @@ public class PlayerSettings
             [QuestionType.Subtraction] = (true, 0),
             [QuestionType.Multiplication] = (true, 0),
             [QuestionType.Division] = (true, 0)
-        };
-
-        selectedGameMode = GameMode.Classic;
+        };        
         clockDisplayEnabled = true;
         questionCount = minQuestionCount;
         timeLimit = minTimeLimit;
@@ -80,7 +77,6 @@ public class PlayerSettings
     public void UpdateSettings(PlayerSettings ps)
     {
         questionSettings = ps.questionSettings;
-        selectedGameMode = ps.selectedGameMode;
         clockDisplayEnabled = ps.clockDisplayEnabled;
         questionCount = ps.questionCount;
         timeLimit = ps.timeLimit;

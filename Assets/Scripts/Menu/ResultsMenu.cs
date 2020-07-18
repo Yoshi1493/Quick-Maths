@@ -19,7 +19,7 @@ public class ResultsMenu : Menu
     {
         OpenMenu(thisMenu);
 
-        if (playerSettings.selectedGameMode != GameMode.Challenge)
+        if (selectedGameMode != GameMode.Challenge)
         {
             gameStats.text += $"{correctAnswerCount} / {answerCount} ({(correctAnswerCount * 100f / answerCount).ToString("F1")}%)\n";
         }
@@ -28,7 +28,7 @@ public class ResultsMenu : Menu
             gameStats.text += $"{correctAnswerCount}\n";
         }
 
-        if (playerSettings.selectedGameMode != GameMode.Timed)
+        if (selectedGameMode != GameMode.Timed)
         {
             string finalTime = TimeSpan.FromSeconds(gameTime).ToString(TimeDisplayFormat);
             gameStats.text += $"Time: {finalTime}\n";

@@ -4,7 +4,7 @@ public class TimedGame : Game
 {
     protected override void Awake()
     {
-        if (playerSettings.selectedGameMode == GameMode.Timed)
+        if (selectedGameMode == GameMode.Timed)
         {
             base.Awake();
         }

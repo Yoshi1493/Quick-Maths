@@ -13,7 +13,7 @@ public class ChallengeGame : Game
 
     protected override void Awake()
     {
-        if (playerSettings.selectedGameMode == GameMode.Challenge)
+        if (selectedGameMode == GameMode.Challenge)
         {
             base.Awake();
         }
