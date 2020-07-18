@@ -44,6 +44,12 @@ public static class FileHandler
         
         playerSettings.UpdateSettings(ps);
     }
+
+    public static void ResetSettings()
+    {
+        playerSettings = new PlayerSettings();
+        SaveSettings();
+    }
 }
 
 [Serializable]

@@ -125,6 +125,7 @@ public class SettingsMenu : Menu
 
     public void ResetSettings()
     {
-
+        FileHandler.ResetSettings();
+        InitUIObjects();
     }
 }
