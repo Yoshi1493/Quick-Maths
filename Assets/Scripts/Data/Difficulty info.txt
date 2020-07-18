@@ -1,14 +1,14 @@
 The following table displays the range of values that a question can randomly generate, based on difficulty level.
 
-= syntax =
+#syntax
 
 <num1 range> <operator> <num2 range>
 [] -> inclusive
 () -> exclusive
 
-==========
+#######
 
-- Addition - 
+- Addition -
 
 Lv. 1: [1, 10) + [1, 10)
 Lv. 2: [10, 100) + [10, 100)
@@ -17,23 +17,27 @@ Lv. 4: [1000, 10000) + [1000, 10000)
 Lv. 5: [10000, 100000) + [10000, 100000)
 
 
-- Subtraction - 
+- Subtraction -
 
-Lv. 1: [1, 10) - [1, num1]
-Lv. 2: [10, 100) - [10, num1]
-Lv. 3: [100, 1000) - [100, num1]
-Lv. 4: [1000, 10000) - [1000, num1]
-Lv. 5: [10000, 100000) - [10000, num1]
+Lv. 1: [1, 10) - [min(1, num1 / 2), num1]
+Lv. 2: [10, 100) - [min(10, num1 / 2), num1]
+Lv. 3: [100, 1000) - [min(100, num1 / 2), num1]
+Lv. 4: [1000, 10000) - [min(1000, num1 / 2), num1]
+Lv. 5: [10000, 100000) - [min(10000, num1 / 2), num1]
 
+A min. function is used for num2 to expand the range of selectable numbers
+in case num1 rolls extremely close to its minimum
 
-- Multiplication - 
+- Multiplication -
 
-Lv. 1: [1, 10) x [1, 10)
-Lv. 2: [11, 100) x [1, 10)
+Lv. 1: [2, 10) x [2, 10)
+Lv. 2: [11, 100) x [2, 10)
 Lv. 3: [11, 100) x [11, 100)
 Lv. 4: [101, 1000) x [11, 100)
 Lv. 5: [101, 1000) x [101, 1000)
 
+Generating a mult. question with '1' in it is avoided because multiplying a
+number with 1 seems too easy of a question compared to anything else
 
 - Division -
 

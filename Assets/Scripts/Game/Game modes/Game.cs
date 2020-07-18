@@ -65,7 +65,7 @@ public class Game : MonoBehaviour
 
             case QuestionType.Subtraction:
                 num1 = GetRandomNumber(GetNumberRange(questionType, difficulty));
-                num2 = GetRandomNumber((GetNumberRange(questionType, difficulty).min, num1 + 1));
+                num2 = GetRandomNumber((Mathf.Min(GetNumberRange(questionType, difficulty).min, num1 / 2), num1 + 1));
 
                 output = $"{ConvertToString(num1)} - {ConvertToString(num2)} =";
                 answers.Enqueue(num1 - num2);
