@@ -6,14 +6,14 @@ This is my first game that I don't consider to be a direct clone of a pre-existi
 ---
 
 ## Overview
-This is a game that challenges the player's mental arithmetic skills. The concept was loosely based on [Nintendo's Brain Age](https://en.wikipedia.org/wiki/Brain_Age) series, with more customization for the player.  
+This is a game that tests the player's mental arithmetic skills. The concept was loosely based on [Nintendo's Brain Age](https://en.wikipedia.org/wiki/Brain_Age) series, with more customization for the player.  
 Addition, subtraction, multiplication, and division questions are randomly generated for the player to answer, with the objective of getting as many correct and as quickly as possible.
 
 ### Game modes
 The game features 3 game modes:
 
-**Classic Mode** - Answer all the questions as quickly as possible
-**Timed Mode** - Answer as many questions as possible before time runs out.
+**Classic Mode** - Answer all the questions as quickly as possible  
+**Timed Mode** - Answer as many questions as possible before time runs out.  
 **Challenge Mode** - Answer questions until you get one wrong, or until time runs out. A correct answer will add 10 seconds to the clock. Questions increase in difficulty as the game goes on.
 
 ### Settings
