@@ -15,17 +15,17 @@ public class ResultsMenu : Menu
         FindObjectOfType<Game>().GameOverAction += OnGameOver;
     }
 
-    void OnGameOver(float gameTime, int answerCount, int correctAnswerCount)
+    void OnGameOver(float gameTime, (int correct, int total) answerData)
     {
         OpenMenu(thisMenu);
 
         if (selectedGameMode != GameMode.Challenge)
         {
-            gameStats.text += $"{correctAnswerCount} / {answerCount} ({(correctAnswerCount * 100f / answerCount).ToString("F1")}%)\n";
+            gameStats.text += $"{answerData.correct} / {answerData.total} ({(answerData.correct * 100f / answerData.total).ToString("F1")}%)\n";
         }
         else
         {
-            gameStats.text += $"{correctAnswerCount}\n";
+            gameStats.text += $"{answerData.correct}\n";
         }
 
         if (selectedGameMode != GameMode.Timed)
@@ -34,7 +34,7 @@ public class ResultsMenu : Menu
             gameStats.text += $"Time: {finalTime}\n";
         }
 
-        string avgTime = TimeSpan.FromSeconds(gameTime / answerCount).ToString(TimeDisplayFormat);
+        string avgTime = TimeSpan.FromSeconds(gameTime / answerData.total).ToString(TimeDisplayFormat);
         gameStats.text += $"(avg. time: {avgTime})";
 
         Destroy(FindObjectOfType<PauseController>());

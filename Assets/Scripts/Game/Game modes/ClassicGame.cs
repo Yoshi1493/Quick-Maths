@@ -20,7 +20,7 @@ public class ClassicGame : Game
     {
         base.OnSubmitAnswer(playerInput);
 
-        if (answers.Count == 0)
+        if (questions.Count == 0)
         {
             clock.StopClock();
             OnGameOver(clock._currentTime);
