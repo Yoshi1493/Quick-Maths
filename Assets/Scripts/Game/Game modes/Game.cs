@@ -10,32 +10,31 @@ public class Game : MonoBehaviour
     protected struct Question
     {
         public readonly QuestionType questionType;
-        readonly int num1;
-        readonly int num2;
+        public readonly (int num1, int num2) question;
         public readonly int answer;
 
         public Question(QuestionType _questionType, int _num1, int _num2)
         {
             questionType = _questionType;
-            num1 = _num1;
-            num2 = _num2;
+            question.num1 = _num1;
+            question.num2 = _num2;
 
             switch (_questionType)
             {
                 case QuestionType.Addition:
-                    answer = num1 + num2;
+                    answer = _num1 + _num2;
                     break;
 
                 case QuestionType.Subtraction:
-                    answer = num1 - num2;
+                    answer = _num1 - _num2;
                     break;
 
                 case QuestionType.Multiplication:
-                    answer = num1 * num2;
+                    answer = _num1 * _num2;
                     break;
 
                 case QuestionType.Division:
-                    answer = num1 / num2;
+                    answer = _num1 / _num2;
                     break;
 
                 default:
@@ -45,7 +44,7 @@ public class Game : MonoBehaviour
         }
     }
 
-    [SerializeField] protected TextMeshProUGUI questionDisplayBox;
+    [SerializeField] protected TextMeshProUGUI questionTextBox;
 
     protected Clock clock;
 
@@ -73,6 +72,7 @@ public class Game : MonoBehaviour
     protected virtual void GenerateQuestions(int amount)
     {
         var enabledQuestionTypes = playerSettings.questionSettings.Where(i => i.Value.enabled);
+        string question;
 
         if (enabledQuestionTypes.Count() == 1)
         {
@@ -80,8 +80,8 @@ public class Game : MonoBehaviour
 
             for (int i = 0; i < amount; i++)
             {
-                string question = GenerateQuestion(questionType, playerSettings.questionSettings[questionType].difficulty);
-                questionDisplayBox.text += question + '\n';
+                question = GenerateQuestion(questionType, playerSettings.questionSettings[questionType].difficulty);
+                questionTextBox.text += question + '\n';
             }
         }
         else
@@ -98,8 +98,8 @@ public class Game : MonoBehaviour
                 //randomize again if the randQuestionType happens to match all the questionTypes in previousQuestions
                 while (previousQuestions.Select(q => q.questionType).All(q => q == randQuestionType));
 
-                string question = GenerateQuestion(randQuestionType, playerSettings.questionSettings[randQuestionType].difficulty);
-                questionDisplayBox.text += question + '\n';
+                question = GenerateQuestion(randQuestionType, playerSettings.questionSettings[randQuestionType].difficulty);
+                questionTextBox.text += question + '\n';
             }
         }
     }

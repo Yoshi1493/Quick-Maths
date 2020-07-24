@@ -33,7 +33,7 @@ public class ChallengeGame : Game
             int difficulty = Mathf.Min(difficulties[randNum] / DifficultyIncreaseRate, MaxDifficultyLevel);
             string question = GenerateQuestion((QuestionType)randNum, difficulty);
 
-            questionDisplayBox.text += question + '\n';
+            questionTextBox.text += question + '\n';
             difficulties[randNum]++;
         }
     }
