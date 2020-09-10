@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static CoroutineHelper;
 
 public class Countdown : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class Countdown : MonoBehaviour
 
         while (timeRemaining > 0)
         {
-            yield return new WaitForEndOfFrame();
+            yield return EndOfFrame;
             timeRemaining -= Time.deltaTime;
 
             //interpolate timer image's fill amount from 1 to 0 over CountdownTime seconds

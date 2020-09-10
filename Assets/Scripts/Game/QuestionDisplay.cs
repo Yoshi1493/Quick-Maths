@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using TMPro;
+using static CoroutineHelper;
 
 public class QuestionDisplay : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class QuestionDisplay : MonoBehaviour
 
         while (currentLerpTime < totalLerpTime)
         {
-            yield return new WaitForEndOfFrame();
+            yield return EndOfFrame;
             currentLerpTime += Time.deltaTime;
 
             float yPos = Mathf.Lerp(startPos, endPos, currentLerpTime / totalLerpTime);

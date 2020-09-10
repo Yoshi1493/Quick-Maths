@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using static GameSettings;
+using static CoroutineHelper;
 
 public class Clock : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Clock : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForEndOfFrame();
+            yield return EndOfFrame;
 
             if (!_paused)
             {
@@ -31,7 +32,7 @@ public class Clock : MonoBehaviour
     {
         while (_currentTime > 0)
         {
-            yield return new WaitForEndOfFrame();
+            yield return EndOfFrame;
 
             if (!_paused)
             {
