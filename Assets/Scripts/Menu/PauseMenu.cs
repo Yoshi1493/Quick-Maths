@@ -36,4 +36,9 @@ public class PauseMenu : Menu
     {
         pauseController.PauseGameAction?.Invoke(false);
     }
+
+    public void OnSelectRetry()
+    {
+        LoadGame((int)GameSettings.selectedGameMode);
+    }
 }

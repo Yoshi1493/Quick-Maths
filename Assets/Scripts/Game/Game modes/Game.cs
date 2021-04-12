@@ -107,7 +107,6 @@ public class Game : MonoBehaviour
     //return a random <questionType> question based on <difficulty>
     protected string GenerateQuestion(QuestionType questionType, int difficulty)
     {
-        print(questionType);
         string output = "";
         int num1 = 0, num2 = 0;
 
@@ -169,7 +168,7 @@ public class Game : MonoBehaviour
         {
             case QuestionType.Addition:
             case QuestionType.Subtraction:
-                result.min = TenToThePowerOf(difficulty);
+                result.min = Mathf.Max(TenToThePowerOf(difficulty), 2);
                 result.max = TenToThePowerOf(difficulty + 1);
                 break;
             case QuestionType.Multiplication:

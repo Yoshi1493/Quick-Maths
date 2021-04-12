@@ -1,16 +1,16 @@
-The following table displays the range of values that a question can randomly generate, based on difficulty level.
+The following lists display the range of values that a question can randomly generate, based on difficulty level.
 
-#syntax
+- Syntax -
 
-<num1 range> <operator> <num2 range>
+Lv. <difficulty level>: <num1 range> <operator> <num2 range>
 [] -> inclusive
 () -> exclusive
 
-#######
+----------
 
 - Addition -
 
-Lv. 1: [1, 10) + [1, 10)
+Lv. 1: (1, 10) + [1, 10)
 Lv. 2: [10, 100) + [10, 100)
 Lv. 3: [100, 1000) + [100, 1000)
 Lv. 4: [1000, 10000) + [1000, 10000)
@@ -19,25 +19,27 @@ Lv. 5: [10000, 100000) + [10000, 100000)
 
 - Subtraction -
 
-Lv. 1: [1, 10) - [min(1, num1 / 2), num1]
+Lv. 1: (1, 10) - [min(1, num1 / 2), num1]
 Lv. 2: [10, 100) - [min(10, num1 / 2), num1]
 Lv. 3: [100, 1000) - [min(100, num1 / 2), num1]
 Lv. 4: [1000, 10000) - [min(1000, num1 / 2), num1]
 Lv. 5: [10000, 100000) - [min(10000, num1 / 2), num1]
 
-A min. function is used for num2 to expand the range of selectable numbers
-in case num1 rolls extremely close to its minimum
+A min function is used for num2 in case num1 rolls
+extremely close to the range floor.
+
 
 - Multiplication -
 
-Lv. 1: [2, 10) x [2, 10)
-Lv. 2: [11, 100) x [2, 10)
-Lv. 3: [11, 100) x [11, 100)
-Lv. 4: [101, 1000) x [11, 100)
-Lv. 5: [101, 1000) x [101, 1000)
+Lv. 1: (1, 10) x (1, 10)
+Lv. 2: (10, 100) x (1, 10)
+Lv. 3: (10, 100) x (10, 100)
+Lv. 4: (100, 1000) x (10, 100)
+Lv. 5: (100, 1000) x (100, 1000)
 
 Generating a mult. question with (10 ^ difficulty) in it is avoided because
-those questions are much easier than anything else in the same range
+those questions are much easier than anything else in the same range.
+
 
 - Division -
 

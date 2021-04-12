@@ -55,7 +55,6 @@ public class ChallengeGame : Game
         base.OnSubmitIncorrectAnswer();
 
         clock.StopClock();
-        print(clock._elapsedTime);
         OnGameOver(clock._elapsedTime);
     }
 }
