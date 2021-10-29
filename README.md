@@ -1,7 +1,7 @@
 # Quick-Maths
 
 ## Overview
-Mental arithmetic app. The concept was loosely based on [Nintendo's Brain Age](https://en.wikipedia.org/wiki/Brain_Age) series, but with some more customization for the player.  
+Mental arithmetic app made in Unity. The concept was loosely based on [Nintendo's Brain Age](https://en.wikipedia.org/wiki/Brain_Age) series, but with some more customization for the player.  
 Addition, subtraction, multiplication, and division questions are randomly generated for the player to answer as quickly as possible, under various rulesets based on selected play mode and difficulty levels.
 
 ### Game modes
