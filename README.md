@@ -34,3 +34,10 @@ I wanted to go for a more back-to-school oriented theme so I decided on a chalkb
 * fonts - 100% free fonts found on dafont.com. Overlayed with an alpha map to give them more of a chalk look to it
 * settings menu sliders, checkboxes, buttons - done in Photoshop
 * built-in keyboard buttons - Unity defaults :)
+
+---
+
+## Screenshots
+
+<img src="https://i.imgur.com/UNjz06H.jpeg" height=555> <img src="https://i.imgur.com/qeDs4e2.jpeg" height=555>  
+<img src="https://i.imgur.com/vqCZPJp.jpeg" height=555> <img src="https://i.imgur.com/NZTAnJG.jpeg" height=555>
